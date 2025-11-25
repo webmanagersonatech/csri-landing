@@ -10,6 +10,8 @@ import { EventType as EventDataType } from "@/data/newsandevents";
 import { FiShare2 } from "react-icons/fi";
 import { Home } from "lucide-react";
 import { newsandeventsData } from "@/data/newsandevents";
+import GalleryModal from "./GalleryModal";
+
 export interface EventType extends Omit<EventDataType, "startDate" | "endDate"> {
     startDate?: string;
     endDate?: string;
@@ -24,7 +26,8 @@ interface NewsAndEventsPageProps {
 export default function NewsAndEventsPage({ event, allEvents }: NewsAndEventsPageProps) {
     const router = useRouter();
     const [search, setSearch] = useState("");
-
+    const [open, setOpen] = useState(false);
+    const [activeIndex, setActiveIndex] = useState(0);
     const filteredEvents = allEvents
         .filter((e) => e.title.toLowerCase().includes(search.toLowerCase()))
         .sort((a, b) => {
@@ -32,6 +35,33 @@ export default function NewsAndEventsPage({ event, allEvents }: NewsAndEventsPag
             const dateB = new Date(b.startDate || b.endDate || 0).getTime();
             return dateB - dateA; // latest first
         });
+
+
+
+    const openModal = (index: number) => {
+        setActiveIndex(index);
+        setOpen(true);
+    };
+
+    const handleNext = () => {
+        const imgs = event.images ?? []; // if undefined → []
+        if (imgs.length === 0) return;
+
+        setActiveIndex((prev) =>
+            prev === imgs.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const handlePrev = () => {
+        const imgs = event.images ?? [];
+        if (imgs.length === 0) return;
+
+        setActiveIndex((prev) =>
+            prev === 0 ? imgs.length - 1 : prev - 1
+        );
+    };
+
+
 
 
     const currentUrl = typeof window !== "undefined" ? window.location.href : "";
@@ -196,21 +226,22 @@ export default function NewsAndEventsPage({ event, allEvents }: NewsAndEventsPag
                 <p className="text-gray-700 text-justify">{event.description}</p>
 
                 {/* Event Additional Images */}
-                {/* {event.images && event.images.length > 0 && (
+                {event.images && event.images.length > 0 && (
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-4">
                         {event.images.map((img, idx) => (
                             <Image
                                 key={idx}
                                 src={img}
-
                                 alt={`${event.title} - ${idx + 1}`}
                                 width={400}
                                 height={200}
-                                className="w-full h-40 object-cover rounded"
+                                className="w-full h-40 object-cover rounded cursor-pointer"
+                                onClick={() => openModal(idx)}
                             />
                         ))}
                     </div>
-                )} */}
+                )}
+
 
                 {/* Previous / Next Navigation */}
                 <div className="flex flex-col sm:flex-row justify-between mt-8 gap-4">
@@ -324,6 +355,16 @@ export default function NewsAndEventsPage({ event, allEvents }: NewsAndEventsPag
                 </div>
 
             </motion.div>
+
+            <GalleryModal
+                open={open}
+                images={event.images || []}
+                index={activeIndex}
+                onClose={() => setOpen(false)}
+                onNext={handleNext}
+                onPrev={handlePrev}
+            />
+
         </div>
     );
 }
