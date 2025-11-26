@@ -83,7 +83,7 @@ const Footer = () => {
               <div className="social-button">
 
                 <a
-                  href="https://www.youtube.com/@SONACSRI"
+                  href="https://www.instagram.com/sona_csri?utm_source=qr&igsh=MXRha3lncW53aHlreg=="
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black"
