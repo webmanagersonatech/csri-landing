@@ -21,6 +21,18 @@ const reports: ReportItem[] = [
     ],
   },
   { name: "Half Yearly Report", href: "/images/preport-pdf/CSRI Half Yealry Report.pdf" },
+  {
+    name: "Program Report",
+    href: "/reports",
+    subReports: [
+      { name: "Med Camp", href: "/images/preport-pdf/Med-Camp.pdf" },
+      { name: "CK Trust Diwali", href: "/images/preport-pdf/CK-Trust-Diwali.pdf" },
+      { name: "Certificate Distribution Ceremony SSP", href: "/images/preport-pdf/Certificate-Distribution-Ceremony-SSP.pdf" },
+      { name: "SMNCY FDP", href: "/images/preport-pdf/SMNCY_FDP.pdf" }
+
+
+    ],
+  },
 ];
 
 const ReportsPage = () => {
@@ -68,7 +80,7 @@ const ReportsPage = () => {
 
           {/* Report Cards */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
@@ -87,10 +99,13 @@ const ReportsPage = () => {
                   </h3>
 
                   <p className="text-gray-700 mb-4 text-sm sm:text-base">
-                    {report.subReports
-                      ? "Explore the monthly editions below"
-                      : "View or download the full report to get detailed insights."}
+                    {report.name === "Program Report"
+                      ? "Explore the program editions below."
+                      : report.subReports
+                        ? "Explore the monthly editions below"
+                        : "View or download the full report to get detailed insights."}
                   </p>
+
 
                   {/* Sub-reports */}
                   {report.subReports && (
