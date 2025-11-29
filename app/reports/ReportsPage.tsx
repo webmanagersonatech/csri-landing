@@ -25,10 +25,10 @@ const reports: ReportItem[] = [
     name: "Program Report",
     href: "/reports",
     subReports: [
-      { name: "Med Camp", href: "/images/preport-pdf/Med-Camp.pdf" },
-      { name: "CK Trust Diwali", href: "/images/preport-pdf/CK-Trust-Diwali.pdf" },
-      { name: "Certificate Distribution Ceremony SSP", href: "/images/preport-pdf/Certificate-Distribution-Ceremony-SSP.pdf" },
-      { name: "SMNCY FDP", href: "/images/preport-pdf/SMNCY_FDP.pdf" }
+      { name: "Medical Camp and Awareness Program for the adolescent girls", href: "/images/preport-pdf/Med-Camp.pdf" },
+      { name: "Diwali Celebration with Leprosy Home, Bargur", href: "/images/preport-pdf/CK-Trust-Diwali.pdf" },
+      { name: "SAIL Salem Steel Plant and CSRI certification event", href: "/images/preport-pdf/Certificate-Distribution-Ceremony-SSP.pdf" },
+      { name: "Faculty Development Programme on AI in Naturopathy and AYUSH", href: "/images/preport-pdf/SMNCY_FDP.pdf" }
 
 
     ],
