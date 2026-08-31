@@ -1,6 +1,10 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import {
+  FaMapMarkerAlt,
+  FaPhoneAlt,
+  FaEnvelope,
   FaFacebookF,
   FaTwitter,
   FaInstagram,
@@ -63,9 +67,39 @@ const Footer = () => {
 
           {/* Brand Section */}
           <div>
-            <h3 className="text-xl lg:text-2xl font-semibold mb-6 text-black">
-              Sona CSRI
-            </h3>
+            <Link href="/" className="inline-block mb-6">
+              <Image
+                src="/Sona_csri.png"
+                alt="Sona CSRI - Centre for Social Responsibility Initiatives"
+                width={1623}
+                height={488}
+                className="h-10 lg:h-12 w-auto"
+              />
+            </Link>
+
+            <address className="not-italic text-gray-600 text-sm space-y-3 mb-6">
+              <p className="flex items-start gap-2">
+                <FaMapMarkerAlt className="w-4 h-4 mt-1 flex-shrink-0 text-gray-500" />
+                <span>
+                  Sona College of Technology, Junction Main Road,
+                  <br />
+                  Salem, Tamil Nadu 636005, India
+                </span>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaPhoneAlt className="w-4 h-4 flex-shrink-0 text-gray-500" />
+                <a href="tel:+914274099999" className="hover:text-black transition-colors">
+                  +91-427-4099999
+                </a>
+              </p>
+              <p className="flex items-center gap-2">
+                <FaEnvelope className="w-4 h-4 flex-shrink-0 text-gray-500" />
+                <a href="mailto:csri@sonatech.ac.in" className="hover:text-black transition-colors">
+                  csri@sonatech.ac.in
+                </a>
+              </p>
+            </address>
+
             {/* <div className="flex gap-5">
               <Link href="https://facebook.com" className="hover:text-black transition-transform">
                 <FaFacebookF className="w-6 h-6" />

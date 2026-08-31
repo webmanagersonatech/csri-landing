@@ -2,6 +2,7 @@
 
 import { Disclosure } from "@headlessui/react";
 import Link from "next/link";
+import Image from "next/image";
 import React from "react";
 import {
   Bars3Icon,
@@ -89,8 +90,15 @@ const Navbar = () => {
         <div className="flex justify-between items-center h-14 sm:h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="text-lg sm:text-xl md:text-2xl font-bold text-black whitespace-nowrap">
-              SONA CSRI
+            <Link href="/" className="flex items-center whitespace-nowrap">
+              <Image
+                src="/Sona_csri.png"
+                alt="Sona CSRI - Centre for Social Responsibility Initiatives"
+                width={1623}
+                height={488}
+                priority
+                className="h-8 sm:h-9 md:h-10 w-auto"
+              />
             </Link>
           </div>
 

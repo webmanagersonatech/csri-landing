@@ -54,7 +54,12 @@ export const metadata: Metadata = {
     images: ["https://sonacsri.com/images/og-default.jpg"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon-preview-1.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-preview-2.png", sizes: "48x48", type: "image/png" },
+      { url: "/favicon-preview-3.png", sizes: "256x256", type: "image/png" },
+    ],
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
   },

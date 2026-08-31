@@ -1,6 +1,7 @@
 import React, { ReactNode } from "react";
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import Link from "next/link";
+import Image from "next/image";
 
 
 interface DrawerProps {
@@ -31,8 +32,14 @@ const Drawer = ({ children, isOpen, setIsOpen }: DrawerProps) => {
                     <header className="px-4 py-4 flex items-center">
 
                         <div className="flex flex-shrink-0 items-center border-right">
-                            <Link href="/" className='text-2xl font-semibold text-black'>
-                               SONA CSRI
+                            <Link href="/">
+                                <Image
+                                    src="/Sona_csri.png"
+                                    alt="Sona CSRI - Centre for Social Responsibility Initiatives"
+                                    width={1623}
+                                    height={488}
+                                    className="h-8 w-auto"
+                                />
                             </Link>
                         </div>
 
