@@ -128,7 +128,7 @@ export default function NewsAndEventsPage({ event, allEvents }: NewsAndEventsPag
                         &larr; Back
                     </button>
                 </div>
-                <nav className="text-gray-400 text-sm mb-2" aria-label="Breadcrumb">
+                <nav className="text-gray-400  mb-2" aria-label="Breadcrumb">
                     <ol className="list-none p-0 inline-flex items-center space-x-1">
 
                         {/* Home */}

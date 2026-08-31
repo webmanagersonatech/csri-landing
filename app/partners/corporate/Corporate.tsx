@@ -210,7 +210,7 @@ export default function CorporatePage() {
     <div>
       <ReuseBanner
         image="/images/banner/corporate-partners.jpg"
-        title="Pratner With Us - Corporates"
+        title="Partner With Us - Corporates"
         subtitle="Projects with Sustainable Impact"
       />
 
@@ -232,7 +232,7 @@ export default function CorporatePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <p className="text-lg text-gray-700 dark:text-gray-300 text-justify">
+              <p className=" text-gray-700 dark:text-gray-300 text-justify">
                 Partner with CSRI to transform your CSR goals into measurable,
                 sustainable impact. We serve as a trusted implementing partner
                 ensuring compliance, innovation, and on-ground success.
@@ -282,7 +282,7 @@ export default function CorporatePage() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.5 }}
           >
-            <p className="text-lg text-gray-700 dark:text-gray-300 text-justify">
+            <p className=" text-gray-700 dark:text-gray-300 text-justify">
               With our strong academic foundation, deep community engagement,
               and award-winning track record, CSRI ensures that your CSR funds
               are not just spent—but invested in long-term, visible change.

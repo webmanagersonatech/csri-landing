@@ -39,7 +39,7 @@ export default function WhyPartnerPages() {
     <div>
       <ReuseBanner
         image="https://img.freepik.com/premium-photo/community-care_895622-720.jpg?ga=GA1.1.1091201869.1763632617&semt=ais_hybrid&w=740&q=80"
-        title=" Pratner With Us - Why Partner"
+        title=" Partner With Us - Why Partner"
         subtitle="Collaborating for a Sustainable Future"
       />
 
@@ -66,7 +66,7 @@ export default function WhyPartnerPages() {
                   <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
                     Why Partner with CSRI?
                   </h2>
-                  <p className="text-lg text-gray-700 dark:text-gray-300 text-justify">
+                  <p className=" text-gray-700 dark:text-gray-300 text-justify">
                     Join hands with SONA CSRI for meaningful CSR
                     collaborations. Whether you’re a corporate, government
                     agency, or foundation, we offer tailored solutions that

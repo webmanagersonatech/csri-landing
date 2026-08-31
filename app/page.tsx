@@ -9,7 +9,7 @@ import Featured from './components/Featured/index';
 import Manage from './components/Manage/index';
 import FAQ from './components/FAQ/index';
 import Testimonials from './components/Testimonials/index';
-
+import Aboutcsri from './components/Aboutcsri';
 import Joinus from './components/Joinus/index';
 
 
@@ -22,12 +22,13 @@ export default function Home() {
   return (
     <main>
       <Banner />
+      <Aboutcsri/>
       <Aboutus />
       <CSRIFocusPage />
       <Featured />
       <Dedicated />
       <div
-        className="relative bg-[url('/images/home/our-mission.webp')]
+        className="relative bg-[url('/images/home/misssion.webp')]
              bg-cover bg-center bg-no-repeat bg-fixed w-full"
       >
         {/* Black overlay */}
@@ -38,19 +39,13 @@ export default function Home() {
           <Digital />
         </div>
       </div>
-
-
-
       <Ourteam />
-
 
       <FAQ />
       <Testimonials />
-
       <Joinus />
-
       <a
-        href="https://wa.me/1234567890"
+        href="https://wa.me/919488998348" // Add +91 here
         target="_blank"
         rel="noopener noreferrer"
         style={{ backgroundColor: "#25D366" }} // WhatsApp green
@@ -58,6 +53,7 @@ export default function Home() {
       >
         <FaWhatsapp className="w-6 h-6" />
       </a>
+
 
     </main>
   )

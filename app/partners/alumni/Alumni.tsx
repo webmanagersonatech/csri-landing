@@ -59,7 +59,7 @@ export default function AlumniPage() {
     <div>
       <ReuseBanner
         image="/images/banner/alumni-partners.jpg"
-        title=" Pratner With Us - Alumni"
+        title=" Partner With Us - Alumni"
         subtitle="Reconnect, Mentor, Volunteer"
       />
 
@@ -80,7 +80,7 @@ export default function AlumniPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 60, damping: 12, delay: 0.2 }}
           >
-            <p className="text-lg text-gray-700 dark:text-gray-300">
+            <p className="text-gray-700 dark:text-gray-300">
               As a proud Sona graduate, your journey doesn’t end at graduation.
               By engaging with CSRI, you continue the legacy of giving back,
               mentoring, and shaping future changemakers.

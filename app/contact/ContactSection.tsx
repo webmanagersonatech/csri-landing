@@ -68,29 +68,43 @@ const ContactSection = () => {
     <section className="pt-10 pb-20">
       {/* Background Banner */}
       <div
-        className="h-48 sm:h-60 md:h-72 lg:h-80 w-full bg-cover bg-center"
+        className="relative h-48 sm:h-60 md:h-72 lg:h-80 w-full bg-cover bg-center"
         style={{
           backgroundImage:
             "url('https://img.freepik.com/premium-photo/contact-us-hand-man-holding-mobile-smartphone-with-mail-phone-email-chat-icon-cutomer-support-concept-blue-wide-banner_256259-3866.jpg?w=740&q=80')",
         }}
-      ></div>
+      >
+        {/* Centered Text */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold text-center">
+            Contact Us
+          </h1>
+        </div>
+      </div>
 
       {/* Contact Card */}
-      <div className="max-w-6xl mx-auto -mt-12 sm:-mt-20 bg-white shadow-xl rounded-2xl p-6 sm:p-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-stretch">
+      <div className="max-w-6xl mx-auto -mt-16 sm:-mt-24 bg-white shadow-xl rounded-2xl p-6 sm:p-10 z-10 relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
           {/* Contact Info */}
-          <div className="space-y-6 flex flex-col h-full">
+          <div className="space-y-6 flex flex-col">
             <h2 className="text-3xl font-bold text-gray-800">Get in Touch</h2>
             <p className="text-gray-600">
               We’re here to help! Reach out with any questions or issues.
             </p>
 
-            <div className="space-y-5 flex flex-col h-full">
+            {/* Contact Details */}
+            <div className="space-y-5">
               <div className="flex items-center gap-3">
                 <Phone className="text-blue-600" />
-                <a href="tel:+914274099999" className="hover:text-blue-700">
-                  +91 427 4099999
-                </a>
+                <div className="flex gap-2">
+                  <a href="tel:+919080482345" className="hover:text-blue-700">
+                    +91 9080482345
+                  </a>
+                  <span>|</span>
+                  <a href="tel:+919488998348" className="hover:text-blue-700">
+                    +91 9488998348
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-3">
@@ -103,13 +117,16 @@ const ContactSection = () => {
                 </a>
               </div>
 
-              <div className="flex items-center gap-3">
-                <MapPin className="text-blue-600" />
-                Sona College of Technology, Junction Main Road, Salem, Tamil
-                Nadu – 636005
+              <div className="flex items-start gap-3">
+                <MapPin className="text-blue-600 mt-1" />
+                <span>
+                  Sona College of Technology, Junction Main Road, Salem, Tamil
+                  Nadu – 636005
+                </span>
               </div>
 
-              <div className="w-full h-full rounded-lg overflow-hidden shadow-md">
+              {/* Map */}
+              <div className="w-full h-54 sm:h-[170px] rounded-lg overflow-hidden shadow-md">
                 <iframe
                   title="Sona College of Technology Map"
                   width="100%"
@@ -183,13 +200,10 @@ const ContactSection = () => {
             <button
               type="submit"
               disabled={loading}
-              className={`w-full py-3 rounded-md font-semibold transition shadow-md mt-auto text-white 
-    ${
-      loading
-        ? "bg-blue-400 cursor-not-allowed"
-        : "bg-blue-600 hover:bg-blue-700"
-    }
-  `}
+              className={`w-full py-3 rounded-md font-semibold transition shadow-md mt-auto text-white ${loading
+                ? "bg-blue-400 cursor-not-allowed"
+                : "bg-blue-600 hover:bg-blue-700"
+                }`}
             >
               {loading ? "Sending..." : "SEND MESSAGE"}
             </button>
@@ -197,6 +211,7 @@ const ContactSection = () => {
         </div>
       </div>
     </section>
+
   );
 };
 

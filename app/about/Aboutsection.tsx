@@ -82,8 +82,8 @@ Guided by his belief that <strong>industry and society thrive together,</strong>
       "/images/team/chocko-valliappa.webp",
     facebook: "https://www.facebook.com/Chockolite",
     twitter: "https://x.com/ChockoValliappa",
-    instagram: "https://www.instagram.com/chockolite/?igsh=MTFlYTdkajhlam45aQ%3D%3D#",
-    linkedin: "https://linkedin.com/in/vicechairman",
+    instagram: "https://www.instagram.com/chockolite?igsh=MTFlYTdkajhlam45aQ==",
+    linkedin: "https://www.linkedin.com/in/veechocko/",
     bio: `<strong>Chocko Valliappa,</strong> Vice Chairman of <strong>The Sona Group,</strong> is an innovator, entrepreneur, and social advocate who has expanded the Group’s presence across <strong>technology, IT services, and education.</strong>  Under his leadership, the Group has nurtured startups, created global partnerships, and advanced industry-ready talent through its institutions.
 
 Equally, he has been a strong force in advancing <strong>social responsibility and welfare.</strong> Guided by the vision that business growth must uplift communities, Chocko Valliappa has championed:
@@ -101,10 +101,10 @@ Through these measures, Chocko Valliappa has positioned himself not only as a te
     role: "Vice Chairman – The Sona Institutions",
     image:
       "/images/team/thyagu-valliappa.webp",
-    facebook: "https://facebook.com/thyagu",
+    facebook: "https://www.facebook.com/thyagu.valliappaa",
     twitter: "https://x.com/ThyaguValliappa",
-    instagram: "https://www.instagram.com/accounts/login/?next=%2Fthyaags%2F&source=omni_redirect",
-    linkedin: "https://linkedin.com/in/thyagu",
+    instagram: "https://www.instagram.com/thyaags?igsh=MWszbmI2MHY4YXdtNw==",
+    linkedin: "https://www.linkedin.com/in/thyagu-valliappa-3616a97/",
     bio: `<strong>Thyagu Valliappa,</strong> Vice Chairman of <strong>The Sona Group,</strong> upholds and expands the Group’s rich legacy in <strong> textiles, garments, infrastructure, and education,</strong> while spearheading new directions in innovation and technology. A forward-thinking industrialist, he has pioneered stretchable silk and mosquito-repellent fabrics, positioning India as a global leader in technical textiles.
 
 Beyond his entrepreneurial achievements, Thyagu’s vision is deeply rooted in social responsibility and inclusive growth. His leadership reflects a rare blend of business excellence and social consciousness.

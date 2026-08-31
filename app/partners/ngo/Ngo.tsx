@@ -140,7 +140,7 @@ export default function NgoPage() {
     <div>
       <ReuseBanner
         image="/images/banner/ngo-partner.jpg"
-        title="Pratner With Us - NGO "
+        title="Partner With Us - NGO "
         subtitle="Collaborate for Greater Social Impact"
       />
 
@@ -167,7 +167,7 @@ export default function NgoPage() {
                 delay: 0.2,
               }}
             >
-              <p className="text-lg text-gray-700 dark:text-gray-300 text-justify">
+              <p className=" text-gray-700 dark:text-gray-300 text-justify">
                 Together, we can expand the reach and impact of community
                 development. CSRI values collaboration and believes that
                 partnerships with grassroots organizations create deeper,

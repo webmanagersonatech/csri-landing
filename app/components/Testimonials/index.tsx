@@ -52,7 +52,7 @@ export default function VideoTestimonials() {
           <h2 className="text-3xl text-[#4f4e50ff] sm:text-4xl font-bold">
             &ldquo;What our community is saying&rdquo;
           </h2>
-          <p className="dark:text-gray-600 text-lg sm:text-xl text-justify">
+          <p className="dark:text-gray-600 text-base sm:text-lg text-justify">
             Watch what our alumni, volunteers, and partners are saying about CSRI. These video testimonials showcase real experiences and the impact our programs have on communities.
           </p>
         </motion.div>

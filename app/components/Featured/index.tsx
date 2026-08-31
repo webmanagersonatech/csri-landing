@@ -13,9 +13,11 @@ interface DataType {
 const postData: DataType[] = [
   { heading: "Jr. Technician Training (Smart Energy Meter)", imgSrc: "/images/on-going-training-projects/energy.webp" },
   { heading: "Tailoring Training (Basic & Advanced)", imgSrc: "/images/on-going-training-projects/tailoring.webp" },
-  { heading: "Aari Work Skill Development", imgSrc: "/images/on-going-training-projects/aari.webp" },
+
   { heading: "Beauty Therapist Training Program", imgSrc: "/images/on-going-training-projects/beauty.webp" },
-  { heading: "Saree Pre-Pleating & Draping Course", imgSrc: "/images/on-going-training-projects/saree.webp" },
+   { heading: "Saree Pre-Pleating & Draping Course", imgSrc: "/images/on-going-training-projects/saree.webp" },
+  { heading: "Aari Work Skill Development", imgSrc: "/images/on-going-training-projects/aari.webp" },
+ 
 ];
 
 // Import slick CSS
@@ -46,7 +48,7 @@ export default class MultipleItems extends Component {
     const settings = {
       dots: false,
       infinite: true,
-      slidesToShow: 2,
+      slidesToShow: 4,
       slidesToScroll: 1,
       arrows: true,
       autoplay: true,          // ✅ Enable autoplay

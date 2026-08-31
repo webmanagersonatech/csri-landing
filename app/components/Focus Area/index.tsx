@@ -203,7 +203,7 @@ export default function CSRIFocusPage() {
           >
             Focus Areas of Working
           </motion.h2>
-          <p className="mt-4 max-w-2xl mx-auto text-base text-gray-600 sm:text-lg">
+          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600 ">
             We create impact through skill development, health initiatives,
             environment, and empowerment programs.
           </p>
@@ -225,7 +225,7 @@ export default function CSRIFocusPage() {
                     {area.title}
                   </h3>
 
-                  <p className="mt-5 text-base text-gray-600 text-justify leading-relaxed px-4 md:px-0">
+                  <p className="mt-5 text-base sm:text-lg text-gray-600 text-justify leading-relaxed px-4 md:px-0">
                     {area.desc}
                   </p>
                 </div>

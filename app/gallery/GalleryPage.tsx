@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ReuseBanner from "../components/ReuseBanner";
@@ -16,7 +16,6 @@ interface ProgramDataType {
   projects: ProjectDataType[];
 }
 
-// Sample data
 const programData: ProgramDataType[] = [
   {
     program: "Agriculture",
@@ -77,11 +76,7 @@ const programData: ProgramDataType[] = [
       { title: "Computer Training 6", imgSrc: "/images/gallery/Computer-Training/Computer-Training-6.webp" },
       { title: "Computer Training 7", imgSrc: "/images/gallery/Computer-Training/Computer-Training-7.webp" },
       { title: "Computer Training 8", imgSrc: "/images/gallery/Computer-Training/Computer-Training-8.webp" },
-
-
     ]
-
-
   },
 
   {
@@ -331,15 +326,35 @@ const programData: ProgramDataType[] = [
       { title: "Persons with Disability 7", imgSrc: "/images/gallery/pwd/pwd-7.webp" },
       { title: "Persons with Disability 8", imgSrc: "/images/gallery/pwd/pwd-8.webp" },
       { title: "Persons with Disability 9", imgSrc: "/images/gallery/pwd/pwd-9.webp" },
-      { title: "Persons with Disability 10", imgSrc: "/images/gallery/pwd/pwd-10.webp" }
+  
+      { title: "Persons with Disability 10", imgSrc: "/images/gallery/pwd/pwd-10.webp" },
+          { title: "Persons with Disability 11", imgSrc: "/images/newsandevents/ft-tide-1.webp" },
+      { title: "Persons with Disability 12", imgSrc: "/images/newsandevents/ft-tide-2.webp" },
+      { title: "Persons with Disability 13", imgSrc: "/images/newsandevents/ft-tide-3.webp" },
+      { title: "Persons with Disability 14", imgSrc: "/images/newsandevents/ft-tide-4.webp" },
+      { title: "Persons with Disability 15", imgSrc: "/images/newsandevents/ft-tide-5.webp" },
+      { title: "Persons with Disability 16", imgSrc: "/images/newsandevents/ft-tide-6.webp" },
+      { title: "Persons with Disability 17", imgSrc: "/images/newsandevents/ft-tide-7.webp" },
     ]
 
 
   },
+  {
+    program: "International Day against Drug Abuse",
+    projects: [
+      { title: "International Day against Drug Abuse 15", imgSrc: "/images/newsandevents/ft-tide-15.webp" },
+      { title: "International Day against Drug Abuse 8", imgSrc: "/images/newsandevents/ft-tide-8.webp" },
+      { title: "International Day against Drug Abuse 9", imgSrc: "/images/newsandevents/ft-tide-9.webp" },
+      { title: "International Day against Drug Abuse 10", imgSrc: "/images/newsandevents/ft-tide-10.webp" },
+      { title: "International Day against Drug Abuse 11", imgSrc: "/images/newsandevents/ft-tide-11.webp" },
+      { title: "International Day against Drug Abuse 12", imgSrc: "/images/newsandevents/ft-tide-12.webp" },
+      { title: "International Day against Drug Abuse 13", imgSrc: "/images/newsandevents/ft-tide-13.webp" },
+      { title: "International Day against Drug Abuse 14", imgSrc: "/images/newsandevents/ft-tide-14.webp" }
+    ]
+  },
 ];
 
-
-
+// animations
 const gridContainer = {
   hidden: { opacity: 0 },
   visible: {
@@ -350,21 +365,53 @@ const gridContainer = {
 
 const gridItem = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 120, damping: 12 } },
-  exit: { opacity: 0, y: -20, transition: { duration: 0.2 } },
+  visible: { opacity: 1, y: 0, transition: { type: "spring" } },
+  exit: { opacity: 0, y: -10 },
 };
 
-const ProjectsSection = () => {
+export default function ProjectsSection() {
   const [activeProgram, setActiveProgram] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<ProjectDataType | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  const currentList = programData[activeProgram].projects;
+
+  const handleNext = () => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev + 1) % currentList.length : 0
+    );
+  };
+
+  const handlePrev = () => {
+    setSelectedIndex((prev) =>
+      prev !== null ? (prev - 1 + currentList.length) % currentList.length : 0
+    );
+  };
+
+  // keyboard controls
+  useEffect(() => {
+    if (selectedIndex === null) return;
+
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === "ArrowRight") handleNext();
+      if (e.key === "ArrowLeft") handlePrev();
+      if (e.key === "Escape") setSelectedIndex(null);
+    };
+
+    window.addEventListener("keydown", handler);
+    return () => window.removeEventListener("keydown", handler);
+  }, [selectedIndex, currentList.length]);
+
+  const selectedImage =
+    selectedIndex !== null ? currentList[selectedIndex] : null;
 
   return (
     <>
       <ReuseBanner
         image="/images/gallery/others/photo-collage.jpg"
-        title=" Gallery"
+        title="Gallery"
         subtitle="A Visual Journey Through Our Work"
       />
+
       <Breadcrumb
         items={[
           { label: "Home", href: "/" },
@@ -374,58 +421,58 @@ const ProjectsSection = () => {
       />
 
       <section className="py-16 bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4">
 
           {/* Tabs */}
           <div className="flex flex-wrap justify-center mb-12 gap-3">
-            {programData.map((program, idx) => (
+            {programData.map((p, i) => (
               <button
-                key={idx}
-                className={`px-6 py-2 rounded-lg font-semibold transition ${activeProgram === idx
-                  ? "bg-blue-600 text-white shadow-lg"
-                  : "bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white"
+                key={i}
+                className={`px-6 py-2 rounded-lg font-semibold transition ${activeProgram === i
+                  ? "bg-blue-600 text-white shadow"
+                  : "bg-gray-300 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-blue-500 hover:text-white"
                   }`}
-                onClick={() => setActiveProgram(idx)}
+                onClick={() => {
+                  setActiveProgram(i);
+                  setSelectedIndex(null);
+                }}
               >
-                {program.program}
+                {p.program}
               </button>
             ))}
           </div>
 
-
-          {/* Animated Grid */}
+          {/* Images Grid */}
           <AnimatePresence mode="wait">
             <motion.div
-              key={activeProgram} // Important: re-mounts container for animation
+              key={activeProgram}
               className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-6"
               variants={gridContainer}
               initial="hidden"
               animate="visible"
               exit="hidden"
             >
-              {programData[activeProgram].projects.map((project, idx) => (
+              {currentList.map((project, i) => (
                 <motion.div
-                  key={idx}
+                  key={i}
                   className="relative overflow-hidden rounded-2xl shadow-lg cursor-pointer group"
                   variants={gridItem}
-                  whileHover={{ scale: 1.06 }}
-                  onClick={() => setSelectedImage(project)}
+                  whileHover={{ scale: 1.05 }}
+                  onClick={() => setSelectedIndex(i)}
                 >
-                  <motion.div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-30 transition-opacity rounded-2xl" />
+                  <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-30 transition rounded-2xl"></div>
+
                   <Image
                     src={project.imgSrc}
                     alt={project.title}
                     width={400}
                     height={300}
-                    className="object-cover w-full h-60 rounded-2xl transition-transform"
+                    className="object-cover w-full h-60 rounded-2xl"
                   />
-                  <motion.div
-                    className="absolute bottom-4 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileHover={{ y: 0, opacity: 1, transition: { type: "spring", stiffness: 120 } }}
-                  >
+
+                  <div className="absolute bottom-4 left-4 text-white font-semibold bg-black/50 px-3 py-1 rounded opacity-0 group-hover:opacity-100 transition">
                     {project.title}
-                  </motion.div>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
@@ -436,51 +483,87 @@ const ProjectsSection = () => {
         <AnimatePresence>
           {selectedImage && (
             <motion.div
-              className="fixed inset-0 bg-black/70 flex items-center justify-center z-50"
+              className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4 sm:p-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setSelectedIndex(null)}
             >
               <motion.div
-                className="relative p-4 max-w-3xl w-full"
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1, transition: { type: 'spring', stiffness: 150, damping: 15 } }}
-                exit={{ scale: 0.8, opacity: 0, transition: { duration: 0.2 } }}
+                className="relative w-full max-w-4xl mx-auto"
+                initial={{ scale: 0.85, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.85, opacity: 0 }}
                 onClick={(e) => e.stopPropagation()}
               >
-                {/* Improved Close Button */}
+                {/* Close Button */}
                 <button
-                  className="absolute -top-3 -right-3 bg-white text-black rounded-full w-10 h-10 flex items-center justify-center shadow-md hover:bg-red-500 hover:text-white transition"
-                  onClick={() => setSelectedImage(null)}
-                  aria-label="Close"
+                  className="absolute -top-4 -right-4 bg-white text-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center shadow hover:bg-red-500 hover:text-white transition"
+                  onClick={() => setSelectedIndex(null)}
                 >
                   ✕
                 </button>
 
-                <Image
-                  src={selectedImage.imgSrc}
-                  alt={selectedImage.title}
-                  width={800}
-                  height={600}
-                  className="object-contain w-full h-auto "
-                />
-
-                <motion.p
-                  className="mt-4 text-center text-white font-semibold"
-                  initial={{ y: 20, opacity: 0 }}
-                  animate={{ y: 0, opacity: 1, transition: { delay: 0.2 } }}
+                {/* Prev Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePrev();
+                  }}
+                  className="
+          absolute top-1/2 -left-4 sm:-left-6 
+          bg-white/80 text-black 
+          w-8 h-8 sm:w-10 sm:h-10 
+          rounded-full shadow flex items-center justify-center 
+          hover:bg-white transition
+        "
                 >
+                  ‹
+                </button>
+
+                {/* Image */}
+                <div className="flex justify-center items-center">
+                  <Image
+                    src={selectedImage.imgSrc}
+                    alt={selectedImage.title}
+                    width={1200}
+                    height={800}
+                    className="
+            object-contain 
+            w-full 
+            max-h-[65vh] sm:max-h-[75vh] md:max-h-[80vh] 
+            rounded
+          "
+                  />
+                </div>
+
+                {/* Next Button */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNext();
+                  }}
+                  className="
+          absolute top-1/2 -right-4 sm:-right-6 
+          bg-white/80 text-black 
+          w-8 h-8 sm:w-10 sm:h-10 
+          rounded-full shadow flex items-center justify-center 
+          hover:bg-white transition
+        "
+                >
+                  ›
+                </button>
+
+                {/* Title */}
+                <p className="text-center text-white mt-4 font-semibold text-sm sm:text-base md:text-lg">
                   {selectedImage.title}
-                </motion.p>
+                </p>
               </motion.div>
             </motion.div>
           )}
-        </AnimatePresence>
 
+        </AnimatePresence>
       </section>
     </>
   );
-};
-
-export default ProjectsSection;
+}

@@ -43,32 +43,32 @@ Key Contributions and Focus Areas:
 </ul>
 Under his guidance, CSRI continues to transform corporate social responsibility into<strong> tangible social progress</strong>, empowering communities and fostering sustainable development.`,
   },
-  {
-    id: 1,
-    name: "Nantha Kumar N",
-    role: "Manager – CSRI ",
-    image: "/images/team/Nantha-Kumar.jpg",
-    facebook: "https://facebook.com/manager",
-    twitter: "https://twitter.com/manager",
-    instagram: "https://instagram.com/manager",
-    linkedin: "https://linkedin.com/in/manager",
-    bio: `<strong>Nantha Kumar N,</strong> Manager with over 15 years of experience in <strong>Corporate Social Responsibility</strong> and community engagement, is a dedicated professional committed to creating impactful programs for marginalized communities. His work spans child and youth empowerment, livelihood promotion, healthcare accessibility, volunteer engagement, and capacity building.
+  //   {
+  //     id: 1,
+  //     name: "Nantha Kumar N",
+  //     role: "Manager – CSRI ",
+  //     image: "/images/team/Nantha-Kumar.jpg",
+  //     facebook: "https://facebook.com/manager",
+  //     twitter: "https://twitter.com/manager",
+  //     instagram: "https://instagram.com/manager",
+  //     linkedin: "https://linkedin.com/in/manager",
+  //     bio: `<strong>Nantha Kumar N,</strong> Manager with over 15 years of experience in <strong>Corporate Social Responsibility</strong> and community engagement, is a dedicated professional committed to creating impactful programs for marginalized communities. His work spans child and youth empowerment, livelihood promotion, healthcare accessibility, volunteer engagement, and capacity building.
 
-Nantha has successfully managed large-scale CSR initiatives with organizations such as <strong>HDFC Life, Smile Foundation, and CFCA</strong> (an international NGO), designing sustainable programs in health, education, disaster relief, and livelihoods. He has also contributed as a freelance trainer and consultant, mentoring NGO leaders and delivering training in leadership, financial literacy, and soft skills.
+  // Nantha has successfully managed large-scale CSR initiatives with organizations such as <strong>HDFC Life, Smile Foundation, and CFCA</strong> (an international NGO), designing sustainable programs in health, education, disaster relief, and livelihoods. He has also contributed as a freelance trainer and consultant, mentoring NGO leaders and delivering training in leadership, financial literacy, and soft skills.
 
-As a Manager, he excels in <strong>program management, stakeholder relations, statutory compliance, and MIS reporting</strong>, leading to the formation of community groups, enhanced youth employment outcomes, and stronger partnerships with corporates, government bodies, and NGOs.
+  // As a Manager, he excels in <strong>program management, stakeholder relations, statutory compliance, and MIS reporting</strong>, leading to the formation of community groups, enhanced youth employment outcomes, and stronger partnerships with corporates, government bodies, and NGOs.
 
-Nantha is deeply committed to healthcare outreach, cultural programs, and the conservation of <strong>Tamil folklore art and traditions</strong>, blending social responsibility with cultural preservation. He believes in empowering people through knowledge, skills, and opportunities, ensuring that every initiative delivers measurable outcomes and creates lasting change.
+  // Nantha is deeply committed to healthcare outreach, cultural programs, and the conservation of <strong>Tamil folklore art and traditions</strong>, blending social responsibility with cultural preservation. He believes in empowering people through knowledge, skills, and opportunities, ensuring that every initiative delivers measurable outcomes and creates lasting change.
 
-His areas of expertise include:
-<ul style="list-style-type: disc; padding-left: 20px;">
-  <li><strong>CSR & Community Engagement</strong></li>
-  <li><strong>Healthcare Accessibility</strong></li>
-  <li><strong>Rural Development & Sustainable Livelihoods</strong></li>
-  <li><strong>Tamil Folklore Art and Traditions</strong></li>
-</ul>
-`,
-  },
+  // His areas of expertise include:
+  // <ul style="list-style-type: disc; padding-left: 20px;">
+  //   <li><strong>CSR & Community Engagement</strong></li>
+  //   <li><strong>Healthcare Accessibility</strong></li>
+  //   <li><strong>Rural Development & Sustainable Livelihoods</strong></li>
+  //   <li><strong>Tamil Folklore Art and Traditions</strong></li>
+  // </ul>
+  // `,
+  //   },
   {
     id: 2,
     name: "Prem M",
@@ -92,11 +92,47 @@ Prem's areas of expertise include:
 </ul>
 `,
   },
+  {
+    id: 5,
+    name: "Prabhu J",
+    role: "Executive – CSRI",
+    image:
+       "/images/team/prabhu.webp",
+    facebook: "https://facebook.com/prabhu",
+    twitter: "https://twitter.com/prabhu",
+    instagram: "https://instagram.com/prabhu",
+    linkedin: "https://linkedin.com/in/prabhu",
+    bio: `
+  <p>
+    <strong>Executive Summary</strong>
+
+    <strong>J. Prabhu</strong>, Executive a dedicated Social Work professional with over 15 years of grassroots and administrative experience, specializing in the design and implementation of social welfare programs within the government sector. Expertise spans critical domains including child protection, gender development, and sustainable waste management. Unique for integrating performance arts and storytelling as pedagogical tools, transforms complex legal acts and social issues into engaging, community-driven narratives.
+  </p>
+  <p><strong>Core Areas of Expertise</strong></p>
+    <p><strong>Child Protection & Rights:</strong> Deep knowledge of the JJ Act, POCSO, and child welfare mechanisms; experienced in training government officials and community stakeholders.</p>
+    <p><strong>Women’s Development:</strong> Implementing socio-economic upliftment programs and safety initiatives in coordination with state departments.</p>
+    <p><strong>Environmental Management:</strong> Leading waste management drives and promoting sustainable practices at the municipal and community levels.</p>
+    <p><strong>Government Liaison:</strong> Navigating public policy, reporting, and inter-departmental coordination to ensure project scalability and compliance.</p>
+  <p>
+    <strong>Creative & Training Methodologies</strong>
+    Recognized for an innovative approach to training, utilizes Creative Performance Pedagogy to sensitize and educate diverse audiences:
+  </p>
+    <p><strong>Theatrical Arts:</strong> Expert trainer in Street Play, Mime, and Modern Drama to address social taboos and public health.</p>
+    <p><strong>Traditional Media:</strong> Skilled in Puppetry, making sensitive topics accessible to children and rural populations.</p>
+    <p><strong>Oral Traditions:</strong> Professional Storyteller, using narrative techniques to foster empathy and drive behavioral change.</p>
+  <p><strong>Key Professional Contributions</strong></p>
+    <p><strong>Policy Advocacy:</strong> Served as a bridge between government mandates and community needs, ensuring effective delivery of social protection services.</p>
+    <p><strong>Capacity Building:</strong> Conducted workshops for police personnel, educators, and social workers on Child Protection Acts and environmental ethics.</p>
+    <p><strong>Public Awareness:</strong> Directed and performed in hundreds of street theater campaigns across various districts to promote women's safety and waste segregation.</p>
+`,
+  },
+
+
 
   {
     id: 3,
     name: "S. Jai Soorya",
-    role: "Coordinator – CSRI",
+    role: "Project Coordinator – CSRI",
     image: "/images/team/jaisurya.webp",
     facebook: "https://facebook.com/coordinator",
     twitter: "https://twitter.com/coordinator",
@@ -116,13 +152,27 @@ Areas of expertise:
 </ul>
 `,
   },
+  {
+    id: 6,
+    name: "Kiruthika S",
+    role: "Social Worker – CSRI",
+    image: "/images/team/kiruthika.webp",
+    facebook: "https://facebook.com/kiruthika",
+    twitter: "https://twitter.com/kiruthika",
+    instagram: "https://instagram.com/kiruthika",
+    linkedin: "https://linkedin.com/in/kiruthika",
+    bio: `<strong>Kiruthika S</strong>, an Electrical and Electronics Engineering graduate, currently serves as a <strong>Social Work Professional at the Centre for Social Responsibility Initiatives (CSRI), Sona College of Technology.</strong> Passionate about community engagement, she actively works with rural communities to promote awareness, participation, and sustainable social change.
 
+She has hands-on experience as a <strong>Radio Jockey and Community Engagement Professional at Sona FM Community Radio</strong>, where she designed and delivered interactive, inclusive programs that connected meaningfully with diverse audiences.
+
+Kiruthika possesses strong skills in <strong>empathetic communication, trust-building, public speaking, grassroots mobilization, community outreach, and women-centric program implementation.</strong> Known for her people-centered approach, she easily connects with individuals, understands community needs, and transforms awareness into meaningful action.`
+  },
   {
     id: 4,
     name: "Mala",
     role: "Mobilizer – CSRI",
     image:
-      "https://img.freepik.com/premium-vector/vector-flat-suitable-social-media-profiles-icons-screensavers-as-template-business-concept_719432-2753.jpg",
+      "/images/team/mala.webp",
     facebook: "https://facebook.com/mobilizer",
     twitter: "https://twitter.com/mobilizer",
     instagram: "https://instagram.com/mobilizer",
@@ -131,6 +181,8 @@ Areas of expertise:
 
 Mala excels at <strong>building trust, motivating participation, and coordinating</strong> smoothly between beneficiaries and program teams. She actively supports outreach efforts that empower individuals, particularly women and underprivileged groups, to access new learning and livelihood opportunities, making a lasting impact in the communities she serves.`,
   },
+
+
 ];
 
 const Teammanage = () => {
@@ -162,7 +214,7 @@ const Teammanage = () => {
             The People Behind Execution
           </h1>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {profilesx.map((profile: any) => (
               <div
                 key={profile.id}

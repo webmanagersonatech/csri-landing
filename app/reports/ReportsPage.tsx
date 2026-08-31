@@ -24,7 +24,10 @@ const reports: ReportItem[] = [
   {
     name: "Program Report",
     href: "/reports",
+    
     subReports: [
+      { name: "From Lab to Livelihood | Empowering Ability Through Innovation", href: "/images/preport-pdf/Lab to Livelihood.pdf" },
+      { name: "Drug Awareness Program", href: "/images/preport-pdf/Drug Awareness.pdf" },
       { name: "Medical Camp and Awareness Program for the adolescent girls", href: "/images/preport-pdf/Med-Camp.pdf" },
       { name: "Diwali Celebration with Leprosy Home, Bargur", href: "/images/preport-pdf/CK-Trust-Diwali.pdf" },
       { name: "SAIL Salem Steel Plant and CSRI certification event", href: "/images/preport-pdf/Certificate-Distribution-Ceremony-SSP.pdf" },
@@ -64,7 +67,7 @@ const ReportsPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <p className="text-sm font-medium tracking-wider text-gray-600 uppercase">
+            <p className="font-medium tracking-wider text-gray-600 uppercase">
               Reports & Publications
             </p>
 
@@ -98,7 +101,7 @@ const ReportsPage = () => {
                     {report.name}
                   </h3>
 
-                  <p className="text-gray-700 mb-4 text-sm sm:text-base">
+                  <p className="text-gray-700 mb-4 text-base sm:text-lg">
                     {report.name === "Program Report"
                       ? "Explore the program editions below."
                       : report.subReports
@@ -117,7 +120,7 @@ const ReportsPage = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()} // prevent parent click
-                            className="text-blue-600 hover:underline"
+                            className="text-blue-600 hover:underline "
                           >
                             {sub.name}
                           </a>

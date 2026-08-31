@@ -1,13 +1,14 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import ReuseBanner from "../components/ReuseBanner";
 import Breadcrumb from "../components/Breadcrumb";
 import { newsandeventsData } from "@/data/newsandevents";
-
-
+import Link from "next/link";
+import { toast } from "react-hot-toast";
+import { getLeads } from "../lib/api";
 
 const eventTabs = [
     { key: "upcoming", label: "Upcoming" },
@@ -18,8 +19,11 @@ const eventTabs = [
 const EventsPage = () => {
     const [activeTab, setActiveTab] = useState("upcoming");
     const [search, setSearch] = useState("");
+    const [leads, setLeads] = useState<any>([]);
+    const [loading, setLoading] = useState(true);
     const [startDateFilter, setStartDateFilter] = useState("");
     const [endDateFilter, setEndDateFilter] = useState("");
+    console.log(leads, "kk")
     const filteredEvents = useMemo(() => {
         // Clone data
         const list = [...newsandeventsData[activeTab]];
@@ -50,7 +54,8 @@ const EventsPage = () => {
         });
     }, [activeTab, search, startDateFilter, endDateFilter]);
 
-
+    const token =
+        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MjQzNjE5OWIxNGU3ZjgzNWUxODk5YyIsInJvbGUiOiJzdXBlcmFkbWluIiwiZW1haWwiOiJ2aW5vQHlvcG1haWwuY29tIiwiaWF0IjoxNzY0NjYyNDI0LCJleHAiOjE3NjQ3NDg4MjR9.BPqDchO2aphnKP2XFEOZcRYKXXmxXdoTBS9PfwXAIfM";
     const [page, setPage] = useState(1);
     const itemsPerPage = 3;
 
@@ -60,6 +65,26 @@ const EventsPage = () => {
         (page - 1) * itemsPerPage,
         page * itemsPerPage
     );
+
+  useEffect(() => {
+  (async () => {
+    try {
+      const data = await getLeads();
+
+      if (!data) {
+        toast.error("Failed to load leads");
+        return;
+      }
+
+      setLeads(data);
+    } catch (err) {
+      toast.error("Error fetching leads");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  })();
+}, []);
 
     return (
         <>
@@ -154,15 +179,16 @@ const EventsPage = () => {
                                             transition={{ duration: 0.4 }}
                                             className="flex flex-col gap-6 h-full overflow-hidden"
                                         >
+
+
                                             {paginatedEvents.map((event, index) => (
                                                 <motion.div
                                                     key={index}
                                                     whileHover={{ scale: 1.01 }}
                                                     className="flex items-start gap-5 border-b pb-5"
                                                 >
-                                                    {/* IMAGE → Slightly Bigger */}
-                                                    <a href={`/events/${event.slug}`} className="block">
-
+                                                    {/* IMAGE */}
+                                                    <Link href={`/events/${event.slug}`} className="block">
                                                         <Image
                                                             src={event.imgSrc}
                                                             alt={event.title}
@@ -170,18 +196,16 @@ const EventsPage = () => {
                                                             height={150}
                                                             className="w-44 h-28 object-cover rounded-lg"
                                                         />
-                                                    </a>
-
+                                                    </Link>
 
                                                     {/* TEXT DETAILS */}
                                                     <div className="flex flex-col flex-1">
-                                                       
 
-                                                        <a href={`/events/${event.slug}`} className="block">
+                                                        <Link href={`/events/${event.slug}`} className="block">
                                                             <h3 className="text-lg font-bold">{event.title}</h3>
-                                                        </a>
+                                                        </Link>
 
-                                                        <p className="text-gray-600 text-sm line-clamp-3">
+                                                        <p className="text-gray-600  line-clamp-3">
                                                             {event.description}
                                                         </p>
 
@@ -191,6 +215,7 @@ const EventsPage = () => {
                                                     </div>
                                                 </motion.div>
                                             ))}
+
                                         </motion.div>
                                     </AnimatePresence>
                                 </div>
@@ -246,22 +271,24 @@ const EventsPage = () => {
                                 {/* HEADER WITH BOTTOM BORDER */}
                                 <div className="pb-3 border-b">
                                     <h2 className="text-xl font-bold text-center">
-                                        {activeTab === "News" ? "Latest News" : activeTab + " List"}
+                                        {activeTab === "News"
+                                            ? "Latest News"
+                                            : activeTab.charAt(0).toUpperCase() + activeTab.slice(1) + " Events"}
+
                                     </h2>
                                 </div>
 
                                 {/* SCROLL LIST */}
                                 <div className="mt-3 flex-1 overflow-y-auto">
                                     <div className="space-y-4">
-                                        {filteredEvents.map((event, idx) => (
-                                            <a key={event.slug} href={`/events/${event.slug}`} className="block">
 
+
+                                        {filteredEvents.map((event, idx) => (
+                                            <Link key={event.slug} href={`/events/${event.slug}`} className="block">
                                                 <div
-                                                    key={idx}
                                                     className="p-3 border rounded-lg hover:bg-blue-50 cursor-pointer transition flex items-center gap-3"
                                                 >
                                                     {/* Thumbnail */}
-
                                                     <Image
                                                         src={event.imgSrc}
                                                         alt={event.title}
@@ -272,22 +299,29 @@ const EventsPage = () => {
 
                                                     {/* Text */}
                                                     <div className="flex flex-col">
-                                                     
-                                                        <h4 className="text-sm font-semibold line-clamp-1">{event.title}</h4>
+                                                        <h4 className="text-sm font-semibold line-clamp-1">
+                                                            {event.title}
+                                                        </h4>
                                                         <p className="text-xs text-gray-500">
                                                             {event.startDate} → {event.endDate}
                                                         </p>
                                                     </div>
                                                 </div>
-                                            </a>
-
+                                            </Link>
                                         ))}
+
                                     </div>
                                 </div>
 
                             </div>
                         </div>
-
+                        <ul className="text-xl">
+                            {leads?.docs?.map((lead: any) => (
+                                <li key={lead._id}>
+                                    {lead._id}
+                                </li>
+                            ))}
+                        </ul>
 
                     </div>
 

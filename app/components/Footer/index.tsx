@@ -28,7 +28,7 @@ const products: ProductType[] = [
     id: 2,
     section: "Quick Links",
     links: [
-      { label: "Join Our Programs", href: "/#join", icon: <FaChevronRight /> },
+      { label: "Join Our Programs", href: "/focus-area/skill#joinongoing", icon: <FaChevronRight /> },
       { label: "Upcoming Events", href: "/events", icon: <FaChevronRight /> },
       { label: "Enquiry", href: "/#enquiry", icon: <FaChevronRight /> },
     ],
@@ -136,49 +136,54 @@ const Footer = () => {
               </div>
 
               <div className="social-button">
+                <a
+                  href="https://www.linkedin.com/in/sona-centre-for-social-responsibility-initiatives-csri-70924a24a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-black"
+                >
+                  <button className="relative w-8 h-8 rounded-full group">
 
-                <button className="relative w-8 h-8 rounded-full group">
-
-                  {/* Floating background */}
-                  <div
-                    className="floater w-full h-full absolute top-0 left-0
+                    {/* Floating background */}
+                    <div
+                      className="floater w-full h-full absolute top-0 left-0
       rounded-full duration-300
       bg-gray-300
       group-hover:bg-[#0A66C2]
       group-hover:-top-8 
       group-hover:shadow-2xl"
-                  ></div>
+                    ></div>
 
-                  {/* Icon wrapper */}
-                  <div
-                    className="icon relative z-10 w-full h-full flex items-center justify-center
+                    {/* Icon wrapper */}
+                    <div
+                      className="icon relative z-10 w-full h-full flex items-center justify-center
       rounded-full border-2
       border-gray-400
       bg-gray-200
       group-hover:border-[#0A66C2]
       group-hover:bg-transparent
       duration-300"
-                  >
-
-                    {/* SVG */}
-                    <svg
-                      height="18"
-                      width="18"
-                      viewBox="0 0 24 24"
-                      xmlns="http://www.w3.org/2000/svg"
                     >
-                      <path
-                        className="fill-gray-700 group-hover:fill-[#0A66C2] duration-300"
-                        d="M20,2H4C2.9,2,2,2.9,2,4v16c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z M8.5,19H6V10h2.5V19z M7.3,9 
+
+                      {/* SVG */}
+                      <svg
+                        height="18"
+                        width="18"
+                        viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          className="fill-gray-700 group-hover:fill-[#0A66C2] duration-300"
+                          d="M20,2H4C2.9,2,2,2.9,2,4v16c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V4C22,2.9,21.1,2,20,2z M8.5,19H6V10h2.5V19z M7.3,9 
           h-0.1C6.4,9,6,8.6,6,8.1V7.9c0-0.5,0.4-0.9,0.9-0.9h0.1C7.6,7,8,7.4,8,7.9v0.1C8,8.6,7.6,9,7.3,9z 
           M19,19h-2.5v-4.9c0-1.2-0.4-2-1.4-2c-0.8,0-1.3,0.6-1.5,1.2h-0.1V19H10V10h2.3v1.3h0
           C12.7,10.7,14,9.9,15.5,9.9c2.1,0,3.5,1.4,3.5,3.8V19z"
-                      ></path>
-                    </svg>
+                        ></path>
+                      </svg>
 
-                  </div>
-                </button>
-
+                    </div>
+                  </button>
+                </a>
               </div>
 
 
@@ -302,12 +307,12 @@ const Footer = () => {
             © 2025 Sona-CSRI. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
-            <Link href="/privacy-policy" className="hover:text-black transition-colors">
+            {/* <Link href="/privacy-policy" className="hover:text-black transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-black transition-colors">
               Terms & Conditions
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

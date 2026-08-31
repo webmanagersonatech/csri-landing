@@ -73,7 +73,7 @@ const Join = () => {
                 Join CSRI
               </h2>
 
-              <p className="text-gray-800 md:text-base leading-relaxed">
+              <p className="text-gray-800 text-base sm:text-lg leading-relaxed">
                 Be a part of our community and drive real change. <br />
                 Join CSRI initiatives to mentor youth, promote skill
                 development, and contribute to sustainable community programs.

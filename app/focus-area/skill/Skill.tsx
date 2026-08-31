@@ -83,21 +83,51 @@ const SkillPage = () => {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const [isOpen, setIsOpen] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     program: "",
   });
+  const [captchaCode, setCaptchaCode] = useState("");
   const [status, setStatus] = useState<
     "idle" | "success" | "error" | "captcha"
   >("idle");
   const [captcha, setCaptcha] = useState("");
   const [captchaInput, setCaptchaInput] = useState("");
   const [loading, setLoading] = useState(false);
+  const [courseFormData, setCourseFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    captcha: "",
+    course: "",
+  });
+
   const filteredPrograms = trainingPrograms.filter((program) =>
     program.name.toLowerCase().includes(search.toLowerCase())
   );
+  const openForm = (courseName: string) => {
+    setCourseFormData((prev) => ({
+      ...prev,
+      course: courseName,
+    }));
+    setShowForm(true);
+  };
+
+  const closeForm = () => {
+    setShowForm(false);
+    setCourseFormData({
+      name: "",
+      email: "",
+      phone: "",
+      captcha: "",
+      course: "",
+    });
+  };
+
+
 
   const PAGE_SIZE = 10;
   const totalPages = Math.ceil(filteredPrograms.length / PAGE_SIZE);
@@ -122,9 +152,18 @@ const SkillPage = () => {
     setCaptcha(result);
     setCaptchaInput("");
   };
+
+  const generateCaptchacourse = () => {
+    const code = Math.random().toString(36).substring(2, 8).toUpperCase();
+    setCaptchaCode(code);
+  };
   useEffect(() => {
     if (isOpen) generateCaptcha();
   }, [isOpen]);
+
+  useEffect(() => {
+    if (showForm) generateCaptchacourse();
+  }, [showForm]);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -179,6 +218,45 @@ const SkillPage = () => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleSubmits = async () => {
+    if (!courseFormData.captcha) {
+      toast.error("Please verify CAPTCHA");
+      return;
+    }
+
+    if (!courseFormData.name || !courseFormData.email || !courseFormData.phone) {
+      toast.error("Please fill all the fields");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+  
+      const payload = {
+        name: courseFormData.name,
+        email: courseFormData.email,
+        phone: courseFormData.phone,
+        course: courseFormData.course,
+      };
+
+      const res = await postData("showinterstprograms", payload);
+
+      const data = await res.json();
+
+      if (res.ok) {
+        toast.success("Form Submitted Successfully!");
+        closeForm();
+      } else {
+        toast.error(data.message || "Something went wrong");
+      }
+    } catch (err) {
+      toast.error("Server error. Try again");
+    }
+
+    setLoading(false);
   };
 
   const modalVariants = {
@@ -239,6 +317,7 @@ const SkillPage = () => {
               </div>
 
               <button
+                id="joinongoing"
                 onClick={() => setIsOpen(true)}
                 type="button"
                 className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 flex items-center gap-3"
@@ -262,12 +341,13 @@ const SkillPage = () => {
                   <path d="M6 12v5a6 3 0 0012 0v-5" />
                 </svg>
 
-                <span className="relative">Join a Training Program</span>
+                <span className="relative">Join an Ongoing Training Program</span>
 
                 <div className="animate-shine-infinite absolute inset-0 -top-[20px] flex h-[calc(100%+40px)] w-full justify-center blur-[12px]">
                   <div className="relative h-full w-8 bg-white/30" />
                 </div>
               </button>
+
             </div>
 
             {/* Right: Image */}
@@ -309,6 +389,9 @@ const SkillPage = () => {
                     <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
                       Duration
                     </th>
+                    <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                      Action
+                    </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
@@ -325,6 +408,14 @@ const SkillPage = () => {
                       </td>
                       <td className="px-4 py-3 text-sm text-gray-700">
                         {program.duration}
+                      </td>
+                      <td className="px-4 py-3">
+                        <button
+                          onClick={() => openForm(program.name)}
+                          className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
+                        >
+                          Show Interest
+                        </button>
                       </td>
                     </tr>
                   ))}
@@ -359,11 +450,10 @@ const SkillPage = () => {
                   <button
                     key={i}
                     onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${
-                      currentPage === i + 1
-                        ? "bg-blue-600 text-white"
-                        : "bg-gray-200"
-                    }`}
+                    className={`px-3 py-1 rounded ${currentPage === i + 1
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-200"
+                      }`}
                   >
                     {i + 1}
                   </button>
@@ -512,6 +602,132 @@ const SkillPage = () => {
             </motion.div>
           )}
         </AnimatePresence>
+
+        <AnimatePresence>
+          {showForm && (
+            <motion.div
+              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+            >
+              <motion.div
+                initial={{ scale: 0.7, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.7, opacity: 0 }}
+                className="relative bg-white rounded-xl shadow-xl p-6 w-full max-w-md"
+              >
+                {/* CLOSE BUTTON */}
+                <button
+                  onClick={closeForm}
+                  className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl"
+                >
+                  ✕
+                </button>
+
+                {/* <h2 className="text-xl font-semibold mb-4">Show Interest</h2> */}
+
+                {/* SELECTED COURSE */}
+                <div className="mb-3">
+                  <label className="text-sm text-gray-600">Selected Course</label>
+                  <input
+                    type="text"
+                    value={courseFormData.course}
+                    readOnly
+                    className="w-full mt-1 p-2 border rounded-md bg-gray-100"
+                  />
+                </div>
+
+                {/* NAME */}
+                <div className="mb-3">
+                  <label className="text-sm text-gray-600">Name</label>
+                  <input
+                    type="text"
+                    value={courseFormData.name}
+                    onChange={(e) =>
+                      setCourseFormData({ ...courseFormData, name: e.target.value })
+                    }
+                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* EMAIL */}
+                <div className="mb-3">
+                  <label className="text-sm text-gray-600">Email</label>
+                  <input
+                    type="email"
+                    value={courseFormData.email}
+                    onChange={(e) =>
+                      setCourseFormData({ ...courseFormData, email: e.target.value })
+                    }
+                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* PHONE */}
+                <div className="mb-3">
+                  <label className="text-sm text-gray-600">Phone</label>
+                  <input
+                    type="number"
+                    value={courseFormData.phone}
+                    onChange={(e) =>
+                      setCourseFormData({ ...courseFormData, phone: e.target.value })
+                    }
+                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* CAPTCHA SECTION */}
+                <div className="mb-4">
+                  <label className="text-sm text-gray-600">Enter Captcha</label>
+
+                  <div className="flex items-center gap-3 mt-1">
+                    {/* Captcha Box */}
+                    <div className="px-4 py-2 bg-gray-200 rounded-md font-mono text-lg tracking-widest">
+                      {captchaCode}
+                    </div>
+
+                    {/* Refresh Button */}
+                    <button
+                      onClick={generateCaptchacourse}
+                      className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+                    >
+                      ↻
+                    </button>
+                  </div>
+
+                  {/* Captcha Input */}
+                  <input
+                    type="text"
+                    placeholder="Enter captcha"
+                    value={courseFormData.captcha}
+                    onChange={(e) =>
+                      setCourseFormData({
+                        ...courseFormData,
+                        captcha: e.target.value,
+                      })
+                    }
+                    className="w-full mt-2 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
+                  />
+                </div>
+
+                {/* BUTTONS */}
+                <div className="flex justify-end gap-3">
+
+
+                  <button
+                    onClick={handleSubmits}
+                    disabled={loading}
+                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
+                  >
+                    {loading ? "Submitting..." : "Submit"}
+                  </button>
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
       </section>
     </>
   );

@@ -15,30 +15,7 @@ export interface EventType {
 export const newsandeventsData: Record<string, EventType[]> = {
 
     upcoming: [
-        {
-            title: "Inauguration Ceremony of Artificial Jewellery Designer (Terracotta)",
-            slug: "inauguration-ceremony-artificial-jewellery-designer-terracotta",
-            startDate: "2025-12-05",
-            endDate: "2025-12-05",
-            description:
-                "This programme marks an exciting beginning for aspiring artisans stepping into the world of creative craftsmanship. This initiative empowers participants with hands-on skills to design unique, eco-friendly terracotta jewellery that blends tradition with modern fashion trends. With inspiring messages from dignitaries, the ceremony celebrates creativity, skill development, and the promise of transforming artistic passion into meaningful livelihoods.",
-            imgSrc: "/images/events-news/Jewellery-Designer.webp",
-            images: ["/images/events-news/Jewellery-Designer.webp"],
-            category: "Upcoming Events",
-            showfront: true,
-        },
-        {
-            title: "Commencement of Multi Skilled Garment Technician",
-            slug: "commencement-multi-skilled-garment-technician",
-            startDate: "2025-12-01",
-            endDate: "2025-12-01",
-            description:
-                "SAIL Salem Steel Plant sponsored Multi Skilled Garment Technician programme proudly launches a transformative skill development initiative designed to uplift aspiring entrepreneurs. This event showcases SRCL’s commitment to empowering women and youth with professional tailoring expertise that opens doors to income generation and self-employment.",
-            imgSrc: "/images/events-news/Multi-Skilled-Garment-Technician.webp",
-            images: ["/images/events-news/Multi-Skilled-Garment-Technician.webp"],
-            category: "Upcoming Events",
-            showfront: true,
-        },
+
     ],
 
     News: [
@@ -68,6 +45,51 @@ export const newsandeventsData: Record<string, EventType[]> = {
     ],
 
     past: [
+        {
+            title: "From Lab to Livelihood | Empowering Ability Through Innovation",
+            slug: "from-lab-to-livelihood-empowering-ability-through-innovation",
+            startDate: "2026-07-24",
+            endDate: "2026-07-24",
+            description:
+                "Research creates its greatest impact when it reaches the people who need it most. We are proud to share the successful completion of the DST-SEED TIDE Project titled 'Promoting Independence and Empowerment for Locomotor Disabled Individuals through Assistive Sewing Technology,' culminating in the Certificate Distribution Ceremony held on 29 June 2026 at Sona College of Technology. Jointly organised by the Department of Fashion Technology and the Sona Centre for Social Responsibility Initiatives (CSRI), the programme celebrated the achievements of 50 beneficiaries who successfully completed hands-on training using assistive sewing technology designed to enhance accessibility, independence and livelihood opportunities. We were honoured to have Dr. Amita Bisare, President, Salem Steel Ladies Circle, as the Chief Guest. She highlighted the growing importance of inclusive innovation and emphasised that technology should empower every individual, especially persons with disabilities. In his special address, Prof. Dr. S.R.R. Senthilkumar, Principal, Sona College of Technology, shared a compelling vision: research should not remain within laboratories—it should reach the grassroots and transform lives. He reiterated Sona's commitment to converting 'Lab to Livelihood' by enabling research and development to create meaningful social impact. As the next phase, the Sona CSRI is working to mobilise CSR partnerships and philanthropic support to provide assistive sewing machines to all trained beneficiaries, enabling them to establish sustainable livelihoods. This initiative reflects our belief that innovation is truly meaningful when it empowers lives, restores dignity and creates opportunities for inclusive growth.",
+            imgSrc: "/images/newsandevents/ft-tide-7.webp",
+            images: [
+                "/images/newsandevents/ft-tide-1.webp",
+                "/images/newsandevents/ft-tide-2.webp",
+                "/images/newsandevents/ft-tide-3.webp",
+                "/images/newsandevents/ft-tide-4.webp",
+                "/images/newsandevents/ft-tide-5.webp",
+                "/images/newsandevents/ft-tide-6.webp",
+                "/images/newsandevents/ft-tide-7.webp"
+               
+            ],
+            category: "Past Events",
+            showfront: true,
+        },
+        {
+            title: "Inauguration Ceremony of Artificial Jewellery Designer (Terracotta)",
+            slug: "inauguration-ceremony-artificial-jewellery-designer-terracotta",
+            startDate: "2025-12-05",
+            endDate: "2025-12-05",
+            description:
+                "This programme marks an exciting beginning for aspiring artisans stepping into the world of creative craftsmanship. This initiative empowers participants with hands-on skills to design unique, eco-friendly terracotta jewellery that blends tradition with modern fashion trends. With inspiring messages from dignitaries, the ceremony celebrates creativity, skill development, and the promise of transforming artistic passion into meaningful livelihoods.",
+            imgSrc: "/images/events-news/Jewellery-Designer.webp",
+            images: ["/images/events-news/Jewellery-Designer.webp"],
+            category: "Upcoming Events",
+            showfront: true,
+        },
+        {
+            title: "Commencement of Multi Skilled Garment Technician",
+            slug: "commencement-multi-skilled-garment-technician",
+            startDate: "2025-12-01",
+            endDate: "2025-12-01",
+            description:
+                "SAIL Salem Steel Plant sponsored Multi Skilled Garment Technician programme proudly launches a transformative skill development initiative designed to uplift aspiring entrepreneurs. This event showcases SRCL’s commitment to empowering women and youth with professional tailoring expertise that opens doors to income generation and self-employment.",
+            imgSrc: "/images/events-news/Multi-Skilled-Garment-Technician.webp",
+            images: ["/images/events-news/Multi-Skilled-Garment-Technician.webp"],
+            category: "Upcoming Events",
+            showfront: true,
+        },
         {
             title: "Valedictory Ceremony of Self Supportive Course (Aari & Beauty Therapist)",
             slug: "valedictory-ceremony-aari-beauty-therapist",
@@ -134,18 +156,7 @@ export const newsandeventsData: Record<string, EventType[]> = {
             category: "Past Events",
             showfront: true,
         },
-        {
-            title: "Naturopathy Medical Camp for School Students",
-            slug: "naturopathy-medical-camp-school-students",
-            startDate: "2025-02-20",
-            endDate: "2025-02-21",
-            description:
-                "The Naturopathy Medical Camp encourages students to adopt healthy, natural, preventive wellness practices through yoga sessions, nutrition guidance, health screenings and fun learning.",
-            imgSrc: "/images/gallery/health/health1-15.webp",
-            images: [],
-            category: " Past Events",
-            showfront: true,
-        },
+
         {
             title: "Career Guidance Program",
             slug: "career-guidance-program",
@@ -154,7 +165,7 @@ export const newsandeventsData: Record<string, EventType[]> = {
             description:
                 "The Career Guidance Program empowers students by introducing emerging career trends, in-demand skills, scholarship routes, and industry expectations.",
             imgSrc: "/images/newsandevents/past-2.webp",
-            images: ["/images/newsandevents/career-1.webp","/images/newsandevents/career-2.webp","/images/newsandevents/career-3.webp",],
+            images: ["/images/newsandevents/career-1.webp", "/images/newsandevents/career-2.webp", "/images/newsandevents/career-3.webp",],
             category: " Past Events",
         },
     ],

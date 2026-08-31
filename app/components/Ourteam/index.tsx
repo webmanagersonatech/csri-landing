@@ -60,10 +60,10 @@ const CSRITeam = () => {
             Our Team Believes in Empowering Communities
             for Sustainable Impact
           </h2>
-          <h3 className="text-2xl font-medium pt-8 text-gray-600">
+          <h3 className="text-lg sm:text-xl font-medium pt-8 text-gray-600">
             Driving social change through meaningful initiatives and committed leadership.
           </h3>
-          <h3 className="text-2xl font-medium pt-8 text-gray-600">
+          <h3 className="text-lg sm:text-xl font-medium pt-8 text-gray-600">
             We combine academic strength and community engagement to ensure your CSR funds create long-term, visible impact.
           </h3>
 

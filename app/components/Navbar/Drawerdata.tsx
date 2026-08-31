@@ -85,7 +85,7 @@ const Drawerdata = ({ setIsOpen }: { setIsOpen: (val: boolean) => void }) => {
                                                 e.stopPropagation();   // 🔥 Prevent sidebar from closing
                                                 toggleMenu(item.name);
                                             }}
-                                            className="flex justify-between w-full py-2 rounded-md text-base font-medium text-black hover:bg-gray-700 hover:text-purple"
+                                            className="flex justify-between w-full py-2 rounded-md text-base font-medium text-black hover:bg-gray-500 hover:text-purple"
                                         >
                                             <span>{item.name}</span>
                                             {openMenu === item.name ? (

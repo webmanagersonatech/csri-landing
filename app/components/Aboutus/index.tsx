@@ -8,9 +8,9 @@ import { newsandeventsData, EventType } from "@/data/newsandevents";
 import CountUp from "react-countup";
 import Link from "next/link"
 import {
-  AcademicCapIcon,
+  UsersIcon,
   UserGroupIcon,
-  BriefcaseIcon,
+  HeartIcon,
 } from "@heroicons/react/24/outline";
 import { useState } from "react";
 
@@ -49,10 +49,11 @@ const Aboutdata: datatype[] = [
 ];
 
 const stats = [
-  { icon: AcademicCapIcon, label: "Students", value: 100000 },
-  { icon: UserGroupIcon, label: "Staff Members", value: 1000 },
-  { icon: BriefcaseIcon, label: "Placement Offers", value: 50000 },
+  { icon: HeartIcon, label: "Self-Sustainability Impact", value: 7000 }, // Heart = Impact/Benefit
+  { icon: UsersIcon, label: "Impacted Families", value: 5000 },           // Users = Family/People
+  { icon: UserGroupIcon, label: "Impacted Community People", value: 10000 }, // Group = Community
 ];
+
 
 // ✅ Child component for stat cards (fixes hook issue)
 interface StatProps {
