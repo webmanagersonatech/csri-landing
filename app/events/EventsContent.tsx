@@ -7,7 +7,7 @@ import ReuseBanner from "../components/ReuseBanner";
 import Breadcrumb from "../components/Breadcrumb";
 import { newsandeventsData } from "@/data/newsandevents";
 import Link from "next/link";
-import { toast } from "react-hot-toast";
+import { toast } from "react-toastify";
 import { getLeads } from "../lib/api";
 
 const eventTabs = [

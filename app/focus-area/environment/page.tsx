@@ -6,18 +6,18 @@ export const metadata: Metadata = {
   description:
     "Explore Sona CSRI’s Environment & Sustainability initiatives that focus on conserving nature, promoting renewable energy, and building a greener future for communities.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/focus-area/environment",
+    canonical: "https://sonacsri.com/focus-area/environment",
   },
   openGraph: {
     title: "Focus Area | Environment & Sustainability | Sona CSRI",
     description:
       "Sona CSRI works towards environmental conservation, tree plantation, renewable energy adoption, and waste management to create a sustainable planet.",
-    url: "https://csri.sonatech.ac.in/focus-area/environment",
+    url: "https://sonacsri.com/focus-area/environment",
     siteName: "Sona CSRI",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/environment-banner.jpg",
+        url: "https://sonacsri.com/images/gallery/environment/environment-12.webp",
         width: 1200,
         height: 630,
         alt: "Environment & Sustainability Initiatives by Sona CSRI",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Focus Area | Environment & Sustainability | Sona CSRI",
     description:
       "Learn how Sona CSRI promotes environmental responsibility through sustainability programs, renewable energy use, and waste reduction initiatives.",
-    images: ["https://csri.sonatech.ac.in/images/meta/environment-banner.jpg"],
+    images: ["https://sonacsri.com/images/gallery/environment/environment-12.webp"],
   },
 };
 

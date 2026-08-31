@@ -6,17 +6,17 @@ export const metadata: Metadata = {
   description:
     "Explore CSRI’s Livelihood Promotion Programs supporting community resilience through skill development, enterprise creation, agri-value chains, digital market access, and economic empowerment for rural and vulnerable groups.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/programs/livelihood-promotion",
+    canonical: "https://sonacsri.com/programs/livelihood-promotion",
   },
   openGraph: {
     title: "Livelihood Promotion Activities | Sona CSRI",
     description:
       "Discover CSRI’s community-focused livelihood initiatives: skill labs, micro-enterprise development, inclusive livelihood support, agri-value chain strengthening, and digital market enablement.",
-    url: "https://csri.sonatech.ac.in/programs/livelihood-promotion",
+    url: "https://sonacsri.com/programs/livelihood-promotion",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/livelihood-promotion-banner.jpg",
+        url: "https://sonacsri.com/images/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "CSRI Livelihood Promotion Activities Banner",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     description:
       "Learn how Sona CSRI strengthens community income through skills, micro-enterprises, agriculture value chains, and digital market access.",
     images: [
-      "https://csri.sonatech.ac.in/images/meta/livelihood-promotion-banner.jpg",
+      "https://sonacsri.com/images/og-default.jpg",
     ],
   },
 };

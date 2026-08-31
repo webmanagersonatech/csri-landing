@@ -6,18 +6,18 @@ export const metadata: Metadata = {
   description:
     "Learn more about Sona CSRI, the Centre for Social Responsibility Initiatives at Sona College of Technology. We drive sustainable development, education, and community empowerment through impactful CSR projects.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/about",
+    canonical: "https://sonacsri.com/about",
   },
   openGraph: {
     title: "About Us | Sona CSRI – Empowering Communities Through Responsibility",
     description:
       "Discover Sona CSRI’s mission to foster social responsibility and sustainable growth through education, innovation, and inclusion.",
-    url: "https://csri.sonatech.ac.in/about",
+    url: "https://sonacsri.com/about",
     siteName: "Sona CSRI",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/about-banner.jpg",
+        url: "https://sonacsri.com/images/banner/about-us.webp",
         width: 1200,
         height: 630,
         alt: "Sona CSRI About Banner",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "About Us | Sona CSRI – Empowering Communities Through Responsibility",
     description:
       "Learn how Sona CSRI drives social impact and inclusive development through innovation and compassion.",
-    images: ["https://csri.sonatech.ac.in/images/meta/about-banner.jpg"],
+    images: ["https://sonacsri.com/images/banner/about-us.webp"],
   },
 };
 

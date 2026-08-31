@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import { FaMoneyBillWave, FaChalkboardTeacher, FaBuilding, FaHandsHelping, FaHeartbeat, FaLeaf, FaHome } from "react-icons/fa";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";
@@ -133,8 +134,10 @@ export default function AlumniPage() {
               <div className="relative flex flex-col items-center w-full mx-auto overflow-hidden  md:flex-row-reverse md:max-w-4xl lg:max-w-5xl">
                 {/* Image Section */}
                 <div className="relative w-full h-48 md:h-60 md:w-1/2 group">
-                  <img
-                    className="h-full w-full object-cover"
+                  <Image
+                    fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                    className="object-cover"
                     src="/images/gallery/others/alumni.jpg"
                     alt="Winding mountain road"
                   />

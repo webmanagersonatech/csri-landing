@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation"; // App Router
 import { motion } from "framer-motion";
 import { programCategories } from "@/data/programCategories";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaLeaf,
   FaHeartbeat,
@@ -102,11 +103,13 @@ export default function CSRIFocusPage() {
                 className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-500 flex flex-col overflow-hidden"
               >
 
-                <div className="w-full h-48 overflow-hidden">
-                  <img
+                <div className="relative w-full h-48 overflow-hidden">
+                  <Image
                     src={program.image}
                     alt={program.title}
-                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transform hover:scale-105 transition-transform duration-500"
                   />
                 </div>
 

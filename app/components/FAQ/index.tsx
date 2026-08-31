@@ -3,6 +3,7 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronUpIcon } from "@heroicons/react/20/solid";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Image from "next/image";
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -66,11 +67,13 @@ const FAQ = () => {
         </div>
 
         {/* Right: Image */}
-        <div className="w-full lg:w-1/2 flex justify-center items-start lg:items-center PX-4">
-          <img
+        <div className="relative w-full lg:w-1/2 flex justify-center items-start lg:items-center PX-4 h-64 sm:h-80 md:h-96 lg:h-auto">
+          <Image
             src="/images/home/woman-thinking-with-diverse-people-her_53876-22938.webp"
             alt="FAQ Image"
-            className="object-cover w-full h-64 sm:h-80 md:h-96 lg:h-full"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover"
           />
         </div>
       </div>

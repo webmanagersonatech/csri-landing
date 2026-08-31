@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import ReuseBanner from "../components/ReuseBanner";
 import Breadcrumb from "../components/Breadcrumb";
 import { MdStar, } from "react-icons/md";
@@ -256,11 +257,13 @@ const AboutUssection = () => {
                         <div className="flex-1 flex items-center text-justify  leading-relaxed">
                           <p dangerouslySetInnerHTML={{ __html: section.content }}></p>
                         </div>
-                        <div className="flex-1 h-full">
-                          <img
+                        <div className="relative flex-1 h-full min-h-[280px]">
+                          <Image
                             src={section.image}
                             alt={`about-${idx}`}
-                            className="shadow-xl w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="shadow-xl object-cover"
                           />
                         </div>
                       </div>
@@ -283,11 +286,13 @@ const AboutUssection = () => {
                       >
 
                         {/* IMAGE BLOCK */}
-                        <div className="flex-1 w-full md:w-1/2 h-full min-h-[260px] md:min-h-[320px] overflow-hidden">
-                          <img
+                        <div className="relative flex-1 w-full md:w-1/2 h-full min-h-[260px] md:min-h-[320px] overflow-hidden">
+                          <Image
                             src={section.image}
                             alt={`community-${idx}`}
-                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover transform hover:scale-105 transition-transform duration-500"
                           />
                         </div>
 
@@ -328,10 +333,12 @@ const AboutUssection = () => {
                             onClick={() => setSelectedProfile(profile)}
                             className="cursor-pointer px-2 py-6 mt-12 flex flex-col justify-center items-center text-center border border-gray-300 dark:border-gray-700  shadow-md bg-white dark:bg-gray-800 transition hover:shadow-xl"
                           >
-                            <img
+                            <Image
                               className="inline-flex object-cover border-4 border-blue-600 rounded-full shadow-[5px_5px_0_0_rgba(0,0,0,1)] shadow-blue-600/100 bg-blue-50 text-blue-600 !h-48 !w-48"
                               src={profile.image}
                               alt={profile.name}
+                              width={192}
+                              height={192}
                             />
                             <h1 className="text-xl font-semibold text-gray-700 dark:text-white mt-4">
                               {profile.name}
@@ -419,11 +426,13 @@ const AboutUssection = () => {
                         </div>
 
                         {/* RIGHT: IMAGE */}
-                        <div className="flex-1 h-full">
-                          <img
+                        <div className="relative flex-1 h-full min-h-[280px]">
+                          <Image
                             src={tabContents[key].image}
                             alt={key}
-                            className=" w-full h-full object-cover"
+                            fill
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-cover"
                           />
                         </div>
                       </motion.div>
@@ -483,9 +492,11 @@ const AboutUssection = () => {
 
                 {/* Profile Header */}
                 <div className="text-center mb-6">
-                  <img
+                  <Image
                     src={selectedProfile.image}
                     alt={selectedProfile.name}
+                    width={128}
+                    height={128}
                     className="w-32 h-32 mx-auto rounded-full border-4 border-blue-500 mb-4"
                   />
                   <h2 className="text-2xl font-bold text-gray-800 dark:text-white">

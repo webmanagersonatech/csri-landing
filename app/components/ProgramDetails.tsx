@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 interface Program {
   title: string;
@@ -55,11 +56,13 @@ export default function ProgramDetails({ program }: ProgramDetailsProps) {
         className="flex flex-col lg:flex-row gap-8 items-center"
       >
         {/* Image */}
-        <div className="lg:w-1/2 w-full h-80 overflow-hidden shadow-lg rounded-xl">
-          <img
+        <div className="relative lg:w-1/2 w-full h-80 overflow-hidden shadow-lg rounded-xl">
+          <Image
             src={program.image}
             alt={program.title}
-            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+            fill
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="object-cover transform hover:scale-105 transition-transform duration-500"
           />
         </div>
 

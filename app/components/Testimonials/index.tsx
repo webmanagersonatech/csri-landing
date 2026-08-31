@@ -76,6 +76,7 @@ export default function VideoTestimonials() {
                 <img
                   src={`https://img.youtube.com/vi/${item.videoId}/hqdefault.jpg`}
                   alt={item.name}
+                  loading="lazy"
                   className="w-full h-40 sm:h-48 md:h-52 object-cover"
                 />
 

@@ -25,19 +25,19 @@ export const metadata: Metadata = {
     "Tamil Nadu Development",
     "Sona College of Technology",
   ],
-  metadataBase: new URL("https://csri.sonatech.ac.in"),
+  metadataBase: new URL("https://sonacsri.com"),
   alternates: {
-    canonical: "https://csri.sonatech.ac.in",
+    canonical: "https://sonacsri.com",
   },
   openGraph: {
     title: "Sona CSRI – Center for Social Responsibility Initiatives",
     description:
       "Discover Sona CSRI – the Center for Social Responsibility Initiatives of Sona College of Technology, empowering communities through education, innovation, and sustainability projects.",
-    url: "https://csri.sonatech.ac.in",
+    url: "https://sonacsri.com",
     siteName: "Sona CSRI",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/og-default.jpg",
+        url: "https://sonacsri.com/images/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Sona CSRI – Center for Social Responsibility Initiatives",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     title: "Sona CSRI – Center for Social Responsibility Initiatives",
     description:
       "Empowering communities through education, sustainability, and innovation – the Center for Social Responsibility Initiatives of Sona College of Technology, Salem.",
-    images: ["https://csri.sonatech.ac.in/images/og-default.jpg"],
+    images: ["https://sonacsri.com/images/og-default.jpg"],
   },
   icons: {
     icon: "/favicon.ico",
@@ -81,7 +81,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "NGO",
               name: "Sona CSRI – Center for Social Responsibility Initiatives",
-              url: "https://csri.sonatech.ac.in",
+              url: "https://sonacsri.com",
               description:
                 "Sona CSRI (Center for Social Responsibility Initiatives) drives education, entrepreneurship, and sustainability programs under Sona College of Technology, Salem.",
               parentOrganization: {

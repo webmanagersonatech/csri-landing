@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import {
   FaUniversity,
   FaRecycle,
@@ -42,9 +43,11 @@ export default function EPICSPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <img
+            <Image
               src="/images/gallery/Education/Education-3.webp"
-              className=" object-cover w-full"
+              width={800}
+              height={600}
+              className="object-cover w-full h-auto"
               alt="EPICS Project"
             />
           </motion.div>

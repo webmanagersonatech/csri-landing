@@ -8,6 +8,7 @@ import ReuseBanner from "../components/ReuseBanner";
 import Breadcrumb from "../components/Breadcrumb";
 import { programs } from "@/data/programs";
 import { programCategories } from "@/data/programCategories";
+import Image from "next/image";
 
 const formatDate = (date: string) => {
   try {
@@ -175,11 +176,15 @@ export default function Programscontent() {
                     onClick={() => router.push(`/programs/${program.slug}`)}
                     className="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-2xl transition-all duration-300 cursor-pointer"
                   >
-                    <img
-                      src={program.image}
-                      alt={program.title}
-                      className="w-full h-56 object-cover"
-                    />
+                    <div className="relative w-full h-56">
+                      <Image
+                        src={program.image}
+                        alt={program.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover"
+                      />
+                    </div>
                     <div className="p-6 space-y-3">
                       <h3 className="text-xl font-bold text-gray-900 dark:text-white">
                         {program.title}

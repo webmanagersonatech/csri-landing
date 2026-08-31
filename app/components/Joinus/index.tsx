@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
 import { postData } from "@/app/lib/api";
 import { toast } from "react-toastify";
+import Image from "next/image";
 
 const Join = () => {
   const [loading, setLoading] = useState(false);
@@ -164,8 +165,10 @@ const Join = () => {
               viewport={{ once: true }}
               className="hidden md:block relative"
             >
-              <img
-                className="w-full h-full object-cover object-center"
+              <Image
+                fill
+                sizes="50vw"
+                className="object-cover object-center"
                 src="/images/focus-area/Join-CSRI.webp"
                 alt="CSRI community"
               />

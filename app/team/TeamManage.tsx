@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 
 import ReuseBanner from "../components/ReuseBanner";
 import Breadcrumb from "../components/Breadcrumb";
@@ -222,10 +223,12 @@ const Teammanage = () => {
               >
                 <div className="border-b px-2 py-6">
                   <div className="text-center">
-                    <img
+                    <Image
                       className="h-32 w-32 rounded-full border-4 border-white dark:border-gray-800 mx-auto"
                       src={profile.image}
                       alt={profile.name}
+                      width={128}
+                      height={128}
                     />
                     <div className="py-2">
                       <h1 className="text-xl font-semibold text-gray-700 dark:text-white mt-4">
@@ -289,9 +292,11 @@ const Teammanage = () => {
 
                 {/* Profile Header */}
                 <div className="text-center mb-6">
-                  <img
+                  <Image
                     src={selectedProfile.image}
                     alt={selectedProfile.name}
+                    width={128}
+                    height={128}
                     className="w-32 h-32 mx-auto rounded-full border-4 border-blue-500 mb-4"
                   />
                   <h2 className="text-2xl font-bold text-gray-800 dark:text-white">

@@ -17,7 +17,7 @@ export default function LivelihoodContent() {
     <div>
       {/* ---------- BANNER ---------- */}
       <ReuseBanner
-        image="https://csri.sonatech.ac.in/images/banners/livelihood-promotion.jpg"
+        image="https://sonacsri.com/images/banners/livelihood-promotion.jpg"
         title="Programs - Livelihood Promotion Activities"
         subtitle="Building Skills, Enterprise & Economic Resilience"
       />

@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CSRPartnerLogos() {
     const steps = [
@@ -24,12 +25,14 @@ export default function CSRPartnerLogos() {
                     {marqueeItems.map((step, index) => (
                         <div
                             key={index}
-                            className="flex-none w-24 sm:w-28 h-24 sm:h-28 flex items-center justify-center bg-white  p-4"
+                            className="relative flex-none w-24 sm:w-28 h-24 sm:h-28 flex items-center justify-center bg-white p-4"
                         >
-                            <img
+                            <Image
                                 src={step.logoSrc}
                                 alt={step.name}
-                                className="w-full h-full object-contain"
+                                fill
+                                sizes="112px"
+                                className="object-contain"
                             />
                         </div>
                     ))}

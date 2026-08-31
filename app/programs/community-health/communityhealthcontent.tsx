@@ -43,9 +43,11 @@ export default function CommunityHealthPage() {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <img
+            <Image
               src="/images/gallery/health/health1-15.webp"
-              className=" object-cover w-full"
+              width={800}
+              height={600}
+              className="object-cover w-full h-auto"
               alt="Community Health Initiative"
             />
           </motion.div>

@@ -6,18 +6,18 @@ export const metadata: Metadata = {
   description:
     "Discover Sona CSRI’s Village Adoption initiatives that foster rural development through education, healthcare, skill training, and sustainable livelihood programs.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/focus-area/village",
+    canonical: "https://sonacsri.com/focus-area/village",
   },
   openGraph: {
     title: "Focus Area | Village Adoption | Sona CSRI",
     description:
       "Sona CSRI’s Village Adoption Program empowers rural communities through education, healthcare access, digital literacy, and sustainable livelihoods.",
-    url: "https://csri.sonatech.ac.in/focus-area/village",
+    url: "https://sonacsri.com/focus-area/village",
     siteName: "Sona CSRI",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/village-banner.jpg",
+        url: "https://sonacsri.com/images/gallery/gramasabha/gramasabha-7.webp",
         width: 1200,
         height: 630,
         alt: "Sona CSRI Village Adoption Program",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: "Focus Area | Village Adoption | Sona CSRI",
     description:
       "Learn how Sona CSRI’s Village Adoption initiative strengthens rural communities through education, healthcare, and sustainable development programs.",
-    images: ["https://csri.sonatech.ac.in/images/meta/village-banner.jpg"],
+    images: ["https://sonacsri.com/images/gallery/gramasabha/gramasabha-7.webp"],
   },
 };
 

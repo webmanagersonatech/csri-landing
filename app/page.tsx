@@ -1,20 +1,20 @@
+import dynamic from 'next/dynamic';
 import Banner from './components/Banner/index';
-import Aboutus from './components/Aboutus/index';
-import Dedicated from './components/Dedicated/index';
-import Digital from './components/Digital/index';
-
-import Wework from './components/Wework/index';
-import Ourteam from './components/Ourteam/index';
-import Featured from './components/Featured/index';
-import Manage from './components/Manage/index';
-import FAQ from './components/FAQ/index';
-import Testimonials from './components/Testimonials/index';
 import Aboutcsri from './components/Aboutcsri';
-import Joinus from './components/Joinus/index';
+import Aboutus from './components/Aboutus/index';
 
+// Below-the-fold sections: code-split so their JS loads as the user
+// scrolls down instead of all at once on first paint.
+const CSRIFocusPage = dynamic(() => import('./components/Focus Area/index'));
+const Featured = dynamic(() => import('./components/Featured/index'));
+const Dedicated = dynamic(() => import('./components/Dedicated/index'));
+const Digital = dynamic(() => import('./components/Digital/index'));
+const Ourteam = dynamic(() => import('./components/Ourteam/index'));
+const FAQ = dynamic(() => import('./components/FAQ/index'));
+const Testimonials = dynamic(() => import('./components/Testimonials/index'));
+const Joinus = dynamic(() => import('./components/Joinus/index'));
 
 import { FaWhatsapp } from 'react-icons/fa';
-import CSRIFocusPage from './components/Focus Area/index';
 
 
 export default function Home() {
@@ -29,7 +29,7 @@ export default function Home() {
       <Dedicated />
       <div
         className="relative bg-[url('/images/home/misssion.webp')]
-             bg-cover bg-center bg-no-repeat bg-fixed w-full"
+             bg-cover bg-center bg-no-repeat w-full"
       >
         {/* Black overlay */}
         <div className="absolute inset-0 bg-black/60"></div>

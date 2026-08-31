@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import Notiflix from "notiflix";
 import { FaHandshake, FaLightbulb, FaGlobe, FaUsers } from "react-icons/fa";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";

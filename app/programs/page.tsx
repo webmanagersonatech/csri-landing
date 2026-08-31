@@ -8,18 +8,18 @@ export const metadata: Metadata = {
   description:
     "Explore Sona CSRI’s programs driving social impact through education, sustainability, health, entrepreneurship, and community development.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/programs",
+    canonical: "https://sonacsri.com/programs",
   },
   openGraph: {
     title: "Programs | Sona CSRI – Sustainable Development Initiatives",
     description:
       "Discover impactful programs by Sona CSRI focusing on education, skill development, sustainability, and community well-being.",
-    url: "https://csri.sonatech.ac.in/programs",
+    url: "https://sonacsri.com/programs",
     siteName: "Sona CSRI",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/programs-banner.jpg",
+        url: "https://sonacsri.com/images/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Sona CSRI Programs Banner",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     title: "Programs | Sona CSRI – Sustainable Development Initiatives",
     description:
       "Learn about Sona CSRI’s impactful CSR programs focused on sustainability, education, and empowerment.",
-    images: ["https://csri.sonatech.ac.in/images/meta/programs-banner.jpg"],
+    images: ["https://sonacsri.com/images/og-default.jpg"],
   },
 };
 

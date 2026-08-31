@@ -6,18 +6,18 @@ export const metadata: Metadata = {
   description:
     "Explore Sona CSRI’s Community Health Initiative focusing on medical camps, AYUSH practices, yoga therapy, naturopathy treatments, and the Sona Health on Wheels program supporting holistic well-being.",
   alternates: {
-    canonical: "https://csri.sonatech.ac.in/partners/communityHealth",
+    canonical: "https://sonacsri.com/partners/communityHealth",
   },
   openGraph: {
     title: "Community Health Initiative | Sona CSRI",
     description:
       "Learn how Sona CSRI improves community well-being through medical camps, AYUSH practices, yoga therapy, naturopathy care, and Sona Health on Wheels outreach.",
-    url: "https://csri.sonatech.ac.in/partners/communityHealth",
+    url: "https://sonacsri.com/partners/communityHealth",
     siteName: "Sona CSRI",
     type: "website",
     images: [
       {
-        url: "https://csri.sonatech.ac.in/images/meta/community-health-banner.jpg",
+        url: "https://sonacsri.com/images/og-default.jpg",
         width: 1200,
         height: 630,
         alt: "Community Health Initiative - Sona CSRI",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Discover Sona CSRI’s health outreach through medical camps, AYUSH practices, yoga therapy, naturopathy solutions, and the Sona Health on Wheels initiative.",
     images: [
-      "https://csri.sonatech.ac.in/images/meta/community-health-banner.jpg",
+      "https://sonacsri.com/images/og-default.jpg",
     ],
   },
 };

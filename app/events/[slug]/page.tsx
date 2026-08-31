@@ -46,7 +46,7 @@ export function generateMetadata({ params }: EventPageProps) {
         };
     }
 
-    const base = "https://csri.sonatech.ac.in";
+    const base = "https://sonacsri.com";
     const url = `${base}/events/${event.slug}`;
     const image = event.imgSrc.startsWith("http")
         ? event.imgSrc
