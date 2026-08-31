@@ -88,14 +88,14 @@ const Footer = () => {
               </p>
               <p className="flex items-center gap-2">
                 <FaPhoneAlt className="w-4 h-4 flex-shrink-0 text-gray-500" />
-                <a href="tel:+914274099999" className="hover:text-black transition-colors">
-                  +91-427-4099999
+                <a href="tel:+91 9488998348" className="hover:text-black transition-colors">
+                  +91 9488998348
                 </a>
               </p>
               <p className="flex items-center gap-2">
                 <FaEnvelope className="w-4 h-4 flex-shrink-0 text-gray-500" />
-                <a href="mailto:csri@sonatech.ac.in" className="hover:text-black transition-colors">
-                  csri@sonatech.ac.in
+                <a href="mailto:sonacsri@sonatech.ac.in" className="hover:text-black transition-colors">
+                  sonacsri@sonatech.ac.in
                 </a>
               </p>
             </address>
@@ -171,7 +171,7 @@ const Footer = () => {
 
               <div className="social-button">
                 <a
-                  href="https://www.linkedin.com/in/sona-centre-for-social-responsibility-initiatives-csri-70924a24a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                  href="https://www.linkedin.com/showcase/sona-centre-for-social-responsibility-and-initiatives/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-black"

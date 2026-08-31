@@ -10,14 +10,19 @@ import Link from "next/link";
 import { toast } from "react-toastify";
 import { getLeads } from "../lib/api";
 
+
+
+
 const eventTabs = [
-    { key: "upcoming", label: "Upcoming" },
     { key: "News", label: "News" },
     { key: "past", label: "Past" },
+    { key: "upcoming", label: "Upcoming" },
+
+
 ];
 
 const EventsPage = () => {
-    const [activeTab, setActiveTab] = useState("upcoming");
+    const [activeTab, setActiveTab] = useState("News");
     const [search, setSearch] = useState("");
     const [leads, setLeads] = useState<any>([]);
     const [loading, setLoading] = useState(true);
@@ -66,25 +71,25 @@ const EventsPage = () => {
         page * itemsPerPage
     );
 
-  useEffect(() => {
-  (async () => {
-    try {
-      const data = await getLeads();
+    // useEffect(() => {
+    //     (async () => {
+    //         try {
+    //             const data = await getLeads();
 
-      if (!data) {
-        toast.error("Failed to load leads");
-        return;
-      }
+    //             if (!data) {
+    //                 toast.error("Failed to load leads");
+    //                 return;
+    //             }
 
-      setLeads(data);
-    } catch (err) {
-      toast.error("Error fetching leads");
-      console.error(err);
-    } finally {
-      setLoading(false);
-    }
-  })();
-}, []);
+    //             setLeads(data);
+    //         } catch (err) {
+    //             toast.error("Error fetching leads");
+    //             console.error(err);
+    //         } finally {
+    //             setLoading(false);
+    //         }
+    //     })();
+    // }, []);
 
     return (
         <>

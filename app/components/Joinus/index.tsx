@@ -68,7 +68,7 @@ const Join = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               viewport={{ once: true }}
-              className="flex flex-col justify-center p-6 sm:p-10 space-y-6 text-gray-800"
+              className="flex flex-col justify-center p-2  space-y-6 text-gray-800"
             >
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
                 Join CSRI

@@ -13,7 +13,7 @@ const CSRITeam = () => {
     <section className="bg-gradient-to-r from-gray-100 via-white to-white">
       <div
         className="
-          mx-auto max-w-7xl py-14 px-4  
+          mx-auto max-w-7xl py-14  
           flex flex-col lg:flex-row 
           items-stretch
           gap-12

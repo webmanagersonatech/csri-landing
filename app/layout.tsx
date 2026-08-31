@@ -56,9 +56,9 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-preview-1.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-preview-2.png", sizes: "48x48", type: "image/png" },
-      { url: "/favicon-preview-3.png", sizes: "256x256", type: "image/png" },
+      { url: "/Sona_csri.png", sizes: "32x32", type: "image/png" },
+      { url: "/Sona_csri.png", sizes: "48x48", type: "image/png" },
+      { url: "/Sona_csri.png", sizes: "256x256", type: "image/png" },
     ],
     shortcut: "/favicon.ico",
     apple: "/apple-touch-icon.png",
