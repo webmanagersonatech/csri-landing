@@ -1,19 +1,11 @@
 "use client";
-import { motion } from "framer-motion";
 
 const Beliefs = () => {
-  return (
-    <div className='mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 rounded-3xl'>
+  return <div className='mx-auto max-w-2xl lg:max-w-7xl sm:py-4 lg:px-8 rounded-3xl'>
       <div className='grid grid-cols-1 lg:grid-cols-2 my-16 mx-5 gap-5'>
 
         {/* COLUMN-1 - BELIEFS */}
-        <motion.div 
-          className="bg-darkblue bg-beliefs pt-12 px-10 sm:px-24 pb-52 md:pb-70 rounded-3xl"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="bg-darkblue bg-beliefs pt-12 px-10 sm:px-24 pb-52 md:pb-70 rounded-3xl">
           <h2 className="text-lg font-normal text-white tracking-widest mb-5 text-center sm:text-start">
             OUR BELIEFS
           </h2>
@@ -28,16 +20,10 @@ const Beliefs = () => {
               Join Us
             </button>
           </div>
-        </motion.div>
+        </div>
 
         {/* COLUMN-2 - INITIATIVES */}
-        <motion.div 
-          className="bg-build pt-12 px-10 sm:px-24 pb-52 md:pb-70 rounded-3xl"
-          initial={{ opacity: 0, x: 50 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 1 }}
-        >
+        <div className="bg-build pt-12 px-10 sm:px-24 pb-52 md:pb-70 rounded-3xl">
           <h2 className="text-lg font-normal text-blue tracking-widest mb-5 text-center sm:text-start">
             OUR INITIATIVES
           </h2>
@@ -52,11 +38,9 @@ const Beliefs = () => {
               Learn More
             </button>
           </div>
-        </motion.div>
+        </div>
 
       </div>
-    </div>
-  )
-}
-
+    </div>;
+};
 export default Beliefs;

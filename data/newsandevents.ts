@@ -46,6 +46,24 @@ export const newsandeventsData: Record<string, EventType[]> = {
 
     past: [
         {
+            title: "Certificate Distribution Ceremony – Multi Skilled Garment Technician Programme",
+            slug: "certificate-distribution-ceremony-multi-skilled-garment-technician-programme",
+            startDate: "2026-09-02",
+            endDate: "2026-09-02",
+            description:
+                "The Centre for Social Responsibility Initiatives (CSRI), Sona College of Technology, in collaboration with SAIL Salem Steel Plant, organized the Certificate Distribution Ceremony of the Multi Skilled Garment Technician (MSGT) Programme on 2nd September 2026. The event was graced by Dr. Amita Bisare, Mr. K. Nagarajan, GM (CSR), Salem Steel Plant, the office bearers and members of Salem Steel Ladies Circle, and the Sona CSRI team. Certificates were presented to the successful beneficiaries, while employment offer letters from BP International Company marked an important step towards employment, economic independence, and sustainable livelihoods.",
+            imgSrc: "/images/newsandevents/MSGT-Certificate-Distribution-5.webp",
+            images: ["/images/newsandevents/MSGT-Certificate-Distribution-1.webp",
+                "/images/newsandevents/MSGT-Certificate-Distribution-2.webp",
+                "/images/newsandevents/MSGT-Certificate-Distribution.webp",
+                "/images/newsandevents/MSGT-Certificate-Distribution-3.webp",
+                "/images/newsandevents/MSGT-Certificate-Distribution-4.webp",
+            ],
+
+            category: "Past Events",
+            showfront: true,
+        },
+        {
             title: "From Lab to Livelihood | Empowering Ability Through Innovation",
             slug: "from-lab-to-livelihood-empowering-ability-through-innovation",
             startDate: "2026-07-24",
@@ -61,7 +79,7 @@ export const newsandeventsData: Record<string, EventType[]> = {
                 "/images/newsandevents/ft-tide-5.webp",
                 "/images/newsandevents/ft-tide-6.webp",
                 "/images/newsandevents/ft-tide-7.webp"
-               
+
             ],
             category: "Past Events",
             showfront: true,

@@ -1,36 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  HiMiniAcademicCap,
-  HiMiniCubeTransparent,
-  HiMiniUserGroup,
-  HiMiniGlobeAmericas,
-  HiMiniSparkles,
-} from "react-icons/hi2";
-
+import { HiMiniAcademicCap, HiMiniCubeTransparent, HiMiniUserGroup, HiMiniGlobeAmericas, HiMiniSparkles } from "react-icons/hi2";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";
-
 export default function ResearchProjectsPage() {
-  return (
-    <div>
+  return <div>
       {/* ---------- Banner ---------- */}
-      <ReuseBanner
-        image="https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg"
-        title="Programs - Research Projects for Communities"
-        subtitle="Science, Innovation & Social Transformation"
-      />
+      <ReuseBanner image="https://images.pexels.com/photos/256262/pexels-photo-256262.jpeg" title="Programs - Research Projects for Communities" subtitle="Science, Innovation & Social Transformation" />
 
       {/* ---------- Breadcrumb ---------- */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-4">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Programs", href: "/programs/Research Projects" },
-            { label: "Research Projects" },
-          ]}
-        />
+        <Breadcrumb items={[{
+        label: "Home",
+        href: "/"
+      }, {
+        label: "Programs",
+        href: "/programs/Research Projects"
+      }, {
+        label: "Research Projects"
+      }]} />
       </div>
 
       {/* ---------- RESEARCH PROJECT SECTION ---------- */}
@@ -165,6 +153,5 @@ export default function ResearchProjectsPage() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }

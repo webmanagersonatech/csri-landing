@@ -8,14 +8,17 @@ const TOKEN =
 
 
 // 🔥 POST
+// 🔥 POST
 export async function postData(endpoint: string, data: any) {
   try {
+    const isFormData = data instanceof FormData;
+
     const response = await fetch(`${API_BASE_URL}/${endpoint}`, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-      },
-      body: data instanceof FormData ? data : JSON.stringify(data),
+      headers: isFormData
+        ? { Accept: "application/json" } // let browser set multipart boundary itself
+        : { Accept: "application/json", "Content-Type": "application/json" },
+      body: isFormData ? data : JSON.stringify(data),
     });
 
     return await response.json();

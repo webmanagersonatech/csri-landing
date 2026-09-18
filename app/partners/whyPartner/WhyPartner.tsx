@@ -1,66 +1,50 @@
 "use client";
 
-import { motion } from "framer-motion";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";
 import { FaHome, FaUsers, FaBriefcase } from "react-icons/fa";
 import Link from "next/link";
 export default function WhyPartnerPages() {
-  const steps = [
-    {
-      id: 1,
-      title: "Alumni",
-      bg: "bg-yellow-400",
-      border: "border-yellow-400",
-      line: "border-yellow-400",
-      icon: <FaUsers size={14} />,
-    },
-    {
-      id: 2,
-      title: "NGO",
-      bg: "bg-blue-300",
-      border: "border-blue-300",
-      line: "border-blue-300",
-      icon: <FaUsers size={14} />,
-    },
-    {
-      id: 3,
-      title: "Corporate",
-      bg: "bg-gray-400",
-      border: "border-gray-400",
-      line: "border-gray-400",
-      icon: <FaBriefcase size={14} />,
-    },
-  ];
+  const steps = [{
+    id: 1,
+    title: "Alumni",
+    bg: "bg-yellow-400",
+    border: "border-yellow-400",
+    line: "border-yellow-400",
+    icon: <FaUsers size={14} />
+  }, {
+    id: 2,
+    title: "NGO",
+    bg: "bg-blue-300",
+    border: "border-blue-300",
+    line: "border-blue-300",
+    icon: <FaUsers size={14} />
+  }, {
+    id: 3,
+    title: "Corporate",
+    bg: "bg-gray-400",
+    border: "border-gray-400",
+    line: "border-gray-400",
+    icon: <FaBriefcase size={14} />
+  }];
+  return <div>
+      <ReuseBanner image="https://img.freepik.com/premium-photo/community-care_895622-720.jpg?ga=GA1.1.1091201869.1763632617&semt=ais_hybrid&w=740&q=80" title=" Partner With Us - Why Partner" subtitle="Collaborating for a Sustainable Future" />
 
-
-
-  return (
-    <div>
-      <ReuseBanner
-        image="https://img.freepik.com/premium-photo/community-care_895622-720.jpg?ga=GA1.1.1091201869.1763632617&semt=ais_hybrid&w=740&q=80"
-        title=" Partner With Us - Why Partner"
-        subtitle="Collaborating for a Sustainable Future"
-      />
-
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Partners", href: "/partners/whyPartner" },
-          { label: "Why Partner" },
-        ]}
-      />
+      <Breadcrumb items={[{
+      label: "Home",
+      href: "/"
+    }, {
+      label: "Partners",
+      href: "/partners/whyPartner"
+    }, {
+      label: "Why Partner"
+    }]} />
 
       <section className="py-10 bg-gray-50 dark:bg-gray-900 dark:text-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div>
             <div className="py-12  space-y-12">
-              <motion.div
-                className="flex flex-col md:flex-row items-start md:items-center gap-8"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
+              <div className="flex flex-col md:flex-row items-start md:items-center gap-8">
                 {/* LEFT SECTION - 2/4 width */}
                 <div className="md:w-3/4">
                   <h2 className="text-4xl font-extrabold text-gray-900 dark:text-white mb-4">
@@ -117,24 +101,12 @@ export default function WhyPartnerPages() {
 
                     {/* Steps */}
                     <div className="ml-5 space-y-5">
-                      {steps.map((step, index) => (
-                        <motion.div
-                          key={step.id}
-                          className="relative flex items-center"
-                          whileHover={{ scale: 1.05 }}
-                          transition={{ type: "spring", stiffness: 300 }}
-                        >
+                      {steps.map((step, index) => <div key={step.id} className="relative flex items-center">
                           {/* Curved Line for steps 1 & 3 */}
-                          {(index === 0 || index === 2) && (
-                            <div
-                              className={`absolute -left-14 w-14 h-8 border-t-2 ${step.line} rounded-tl-full rounded-bl-full`}
-                            ></div>
-                          )}
+                          {(index === 0 || index === 2) && <div className={`absolute -left-14 w-14 h-8 border-t-2 ${step.line} rounded-tl-full rounded-bl-full`}></div>}
 
                           {/* Step Item */}
-                          <div
-                            className={`flex items-center ${step.bg} ${step.border} text-gray-800 rounded-full shadow-lg pr-3 pl-3 py-1.5 w-48`}
-                          >
+                          <div className={`flex items-center ${step.bg} ${step.border} text-gray-800 rounded-full shadow-lg pr-3 pl-3 py-1.5 w-48`}>
                             <span className="text-3xl font-bold">{step.id}</span>
 
                             <div className="ml-2 flex-1">
@@ -145,25 +117,18 @@ export default function WhyPartnerPages() {
                               {step.icon}
                             </div>
                           </div>
-                        </motion.div>
-                      ))}
+                        </div>)}
 
                     </div>
                   </div>
                 </div>
-              </motion.div>
+              </div>
 
 
               {/* Features List using Flexbox - 3 per row */}
               <div className="flex flex-wrap -mx-3">
                 {/* Turnkey Project */}
-                <motion.div
-                  className="w-full md:w-1/3 px-3 mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.1 }}
-                >
+                <div className="w-full md:w-1/3 px-3 mb-6">
                   <div className="h-full flex flex-col p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition">
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
                       Turnkey Project Implementation
@@ -175,16 +140,10 @@ export default function WhyPartnerPages() {
                       timelines.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Measurable Outcomes */}
-                <motion.div
-                  className="w-full md:w-1/3 px-3 mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                >
+                <div className="w-full md:w-1/3 px-3 mb-6">
                   <div className="h-full flex flex-col p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition">
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
                       Measurable Outcomes & Transparent Reporting
@@ -196,16 +155,10 @@ export default function WhyPartnerPages() {
                       reports—aligned with CSR compliance norms.
                     </p>
                   </div>
-                </motion.div>
+                </div>
 
                 {/* Community Network */}
-                <motion.div
-                  className="w-full md:w-1/3 px-3 mb-6"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: 0.3 }}
-                >
+                <div className="w-full md:w-1/3 px-3 mb-6">
                   <div className="h-full flex flex-col p-6 border border-gray-200 dark:border-gray-700 rounded-xl shadow-sm hover:shadow-lg transition">
                     <h3 className="text-2xl font-semibold text-gray-900 dark:text-white mb-2">
                       Robust Community Network
@@ -217,20 +170,13 @@ export default function WhyPartnerPages() {
                       most.
                     </p>
                   </div>
-                </motion.div>
+                </div>
               </div>
 
               {/* Footer / Call to Action */}
-              <motion.div
-                className="flex justify-center items-center"
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-              >
+              <div className="flex justify-center items-center">
                 <Link href="/contact">
-                  <button
-                    className="
+                  <button className="
         group
         flex justify-center items-center
         rounded-l-full
@@ -242,11 +188,9 @@ export default function WhyPartnerPages() {
         shadow-md
         hover:shadow-lg
         transition-all duration-300
-      "
-                  >
+      ">
                     {/* LEFT CIRCLE */}
-                    <div
-                      className="
+                    <div className="
           relative
           w-9 h-9 md:w-10 md:h-10
           rounded-l-full
@@ -255,17 +199,9 @@ export default function WhyPartnerPages() {
           shadow-[0_0_0_3px_rgba(255,255,255,0.3)]
           group-hover:scale-105
           transition-all duration-300
-        "
-                    >
+        ">
                       {/* Arrow Icon */}
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.2"
-                        viewBox="0 0 24 24"
-                        className="w-4 h-4 md:w-5 md:h-5 text-blue-600"
-                      >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" strokeWidth="2.2" viewBox="0 0 24 24" className="w-4 h-4 md:w-5 md:h-5 text-blue-600">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 6l-6 6 6 6" />
                       </svg>
                     </div>
@@ -276,7 +212,7 @@ export default function WhyPartnerPages() {
                     </span>
                   </button>
                 </Link>
-              </motion.div>
+              </div>
 
 
 
@@ -292,6 +228,5 @@ export default function WhyPartnerPages() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }

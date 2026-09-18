@@ -2,6 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PopupNotice from "./components/Popup";
+import Preloader from "./components/Preloader";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -55,13 +56,13 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/Sona_csri.png", sizes: "any" },
       { url: "/Sona_csri.png", sizes: "32x32", type: "image/png" },
       { url: "/Sona_csri.png", sizes: "48x48", type: "image/png" },
       { url: "/Sona_csri.png", sizes: "256x256", type: "image/png" },
     ],
-    shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    shortcut: "/Sona_csri.png",
+    apple: "/Sona_csri.png",
   },
   robots: {
     index: true,
@@ -111,20 +112,35 @@ export default function RootLayout({
             }),
           }}
         />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6TPSWD8B6H"
+          strategy="afterInteractive"
+        />
+
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){window.dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-6TPSWD8B6H');
+  `}
+        </Script>
       </head>
 
       <body className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-        <Navbar />
+        <Preloader>
+          <Navbar />
 
-        {children}
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop={true}
-          theme="colored"
-        />
-        <Footer />
+          {children}
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop={true}
+            theme="colored"
+          />
+          <Footer />
+        </Preloader>
       </body>
     </html>
   );

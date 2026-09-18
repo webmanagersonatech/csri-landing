@@ -5,80 +5,134 @@ import Breadcrumb from "@/app/components/Breadcrumb";
 import { MdStar } from "react-icons/md";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { postData } from "@/app/lib/api";
 import { toast } from "react-toastify";
-
-const trainingPrograms = [
-  { sn: 1, name: "Gardening and Landscaping", duration: "3 Months" },
-  {
-    sn: 2,
-    name: "Cultivation of Medicinal and Aromatic Plants",
-    duration: "3 Months",
-  },
-  { sn: 3, name: "Mushroom Cultivator", duration: "4 Months" },
-  { sn: 4, name: "Aloe Veera Cultivator cum Processor", duration: "3 Months" },
-  { sn: 5, name: "Bee Keeping", duration: "2 Months" },
-  { sn: 6, name: "Sericulturist", duration: "3 Months" },
-  { sn: 7, name: "Multi Skilled Garment Technician", duration: "3 Months" },
-  {
-    sn: 8,
-    name: "Solar PV Engineer (Option: Solar Water Pumping System)",
-    duration: "6 Months",
-  },
-  {
-    sn: 9,
-    name: "Product Assembly Assistant(Solar-LED)",
-    duration: "4 Months",
-  },
-  {
-    sn: 10,
-    name: "Drone Manufacturing and Assembly Technician",
-    duration: "5 Months",
-  },
-  { sn: 11, name: "3D Printing Operator", duration: "6 Months" },
-  { sn: 12, name: "Assistant Surveyor", duration: "4 Months" },
-  { sn: 13, name: "Traditional Snack and Savoury Maker", duration: "3 Months" },
-  { sn: 14, name: "Hand Rolled Agarbatti Maker", duration: "2 Months" },
-  { sn: 15, name: "Artificial Jewellery Designer", duration: "4 Months" },
-  { sn: 16, name: "Travel and Tourist Guide", duration: "4 Months" },
-  { sn: 17, name: "Aari", duration: "2 Months" },
-  { sn: 18, name: "Beauty Therapist (Organic)", duration: "3 Months" },
-  { sn: 19, name: "Beauty Therapist", duration: "4 Months" },
-  { sn: 20, name: "Retail Sales Associate", duration: "3 Months" },
-  {
-    sn: 21,
-    name: "Installation and Servicing of CCTV Camera, Security Alarm and Smoke Detector",
-    duration: "3 Months",
-  },
-  { sn: 22, name: "Self Employed Tailor", duration: "3 Months" },
-  { sn: 23, name: "IoT Hardware Analyst", duration: "4 Months" },
-  { sn: 24, name: "Blockchain App Developer", duration: "6 Months" },
-  {
-    sn: 25,
-    name: "Electronic Hardware Assembly Operator",
-    duration: "5 Months",
-  },
-  { sn: 26, name: "Core BlockChain Developer", duration: "5 Months" },
-  { sn: 27, name: "Vermicompost Producer", duration: "4 Months" },
-  { sn: 28, name: "Assistant Electrician", duration: "5 Months" },
-  { sn: 29, name: "Plumber (General)", duration: "5 Months" },
-  { sn: 30, name: "Housekeeper cum Cook", duration: "3 Months" },
-];
-
+const trainingPrograms = [{
+  sn: 1,
+  name: "Gardening and Landscaping",
+  duration: "3 Months"
+}, {
+  sn: 2,
+  name: "Cultivation of Medicinal and Aromatic Plants",
+  duration: "3 Months"
+}, {
+  sn: 3,
+  name: "Mushroom Cultivator",
+  duration: "4 Months"
+}, {
+  sn: 4,
+  name: "Aloe Veera Cultivator cum Processor",
+  duration: "3 Months"
+}, {
+  sn: 5,
+  name: "Bee Keeping",
+  duration: "2 Months"
+}, {
+  sn: 6,
+  name: "Sericulturist",
+  duration: "3 Months"
+}, {
+  sn: 7,
+  name: "Multi Skilled Garment Technician",
+  duration: "3 Months"
+}, {
+  sn: 8,
+  name: "Solar PV Engineer (Option: Solar Water Pumping System)",
+  duration: "6 Months"
+}, {
+  sn: 9,
+  name: "Product Assembly Assistant(Solar-LED)",
+  duration: "4 Months"
+}, {
+  sn: 10,
+  name: "Drone Manufacturing and Assembly Technician",
+  duration: "5 Months"
+}, {
+  sn: 11,
+  name: "3D Printing Operator",
+  duration: "6 Months"
+}, {
+  sn: 12,
+  name: "Assistant Surveyor",
+  duration: "4 Months"
+}, {
+  sn: 13,
+  name: "Traditional Snack and Savoury Maker",
+  duration: "3 Months"
+}, {
+  sn: 14,
+  name: "Hand Rolled Agarbatti Maker",
+  duration: "2 Months"
+}, {
+  sn: 15,
+  name: "Artificial Jewellery Designer",
+  duration: "4 Months"
+}, {
+  sn: 16,
+  name: "Travel and Tourist Guide",
+  duration: "4 Months"
+}, {
+  sn: 17,
+  name: "Aari",
+  duration: "2 Months"
+}, {
+  sn: 18,
+  name: "Beauty Therapist (Organic)",
+  duration: "3 Months"
+}, {
+  sn: 19,
+  name: "Beauty Therapist",
+  duration: "4 Months"
+}, {
+  sn: 20,
+  name: "Retail Sales Associate",
+  duration: "3 Months"
+}, {
+  sn: 21,
+  name: "Installation and Servicing of CCTV Camera, Security Alarm and Smoke Detector",
+  duration: "3 Months"
+}, {
+  sn: 22,
+  name: "Self Employed Tailor",
+  duration: "3 Months"
+}, {
+  sn: 23,
+  name: "IoT Hardware Analyst",
+  duration: "4 Months"
+}, {
+  sn: 24,
+  name: "Blockchain App Developer",
+  duration: "6 Months"
+}, {
+  sn: 25,
+  name: "Electronic Hardware Assembly Operator",
+  duration: "5 Months"
+}, {
+  sn: 26,
+  name: "Core BlockChain Developer",
+  duration: "5 Months"
+}, {
+  sn: 27,
+  name: "Vermicompost Producer",
+  duration: "4 Months"
+}, {
+  sn: 28,
+  name: "Assistant Electrician",
+  duration: "5 Months"
+}, {
+  sn: 29,
+  name: "Plumber (General)",
+  duration: "5 Months"
+}, {
+  sn: 30,
+  name: "Housekeeper cum Cook",
+  duration: "3 Months"
+}];
 const content = {
   label: "Skill Development & Livelihood Promotion",
-  image: "/images/focus-area/Focus-Area-Skill-Development.webp",
+  image: "/images/focus-area/Focus-Area-Skill-Development.webp"
 };
-
-const features = [
-  "Industry-Relevant Training: Courses like Smart Energy Meter Technician, Data Entry, Tailoring (Basic & Advanced), Aari Work, and Beauty Therapy to meet both modern and traditional sector needs.",
-  "Micro-Enterprise Support: Alumni and trainees are encouraged to establish rural businesses such as tailoring shops, craft units, or service enterprises, with post-training mentoring.",
-  "Placement & Career Linkages: Partnerships with industries, retail outlets, and service providers ensure employment pathways for trained candidates.",
-  "Inclusive Access: Programs tailored for differently-abled candidates, rural youth, and women, offering adaptive technology and flexible learning.",
-  "Continuous Innovation: New-age skill additions such as renewable energy systems, ICT skills, and digital marketing introduced regularly.",
-];
-
+const features = ["Industry-Relevant Training: Courses like Smart Energy Meter Technician, Data Entry, Tailoring (Basic & Advanced), Aari Work, and Beauty Therapy to meet both modern and traditional sector needs.", "Micro-Enterprise Support: Alumni and trainees are encouraged to establish rural businesses such as tailoring shops, craft units, or service enterprises, with post-training mentoring.", "Placement & Career Linkages: Partnerships with industries, retail outlets, and service providers ensure employment pathways for trained candidates.", "Inclusive Access: Programs tailored for differently-abled candidates, rural youth, and women, offering adaptive technology and flexible learning.", "Continuous Innovation: New-age skill additions such as renewable energy systems, ICT skills, and digital marketing introduced regularly."];
 const SkillPage = () => {
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -88,12 +142,10 @@ const SkillPage = () => {
     name: "",
     email: "",
     phone: "",
-    program: "",
+    program: ""
   });
   const [captchaCode, setCaptchaCode] = useState("");
-  const [status, setStatus] = useState<
-    "idle" | "success" | "error" | "captcha"
-  >("idle");
+  const [status, setStatus] = useState<"idle" | "success" | "error" | "captcha">("idle");
   const [captcha, setCaptcha] = useState("");
   const [captchaInput, setCaptchaInput] = useState("");
   const [loading, setLoading] = useState(false);
@@ -102,20 +154,16 @@ const SkillPage = () => {
     email: "",
     phone: "",
     captcha: "",
-    course: "",
+    course: ""
   });
-
-  const filteredPrograms = trainingPrograms.filter((program) =>
-    program.name.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredPrograms = trainingPrograms.filter(program => program.name.toLowerCase().includes(search.toLowerCase()));
   const openForm = (courseName: string) => {
-    setCourseFormData((prev) => ({
+    setCourseFormData(prev => ({
       ...prev,
-      course: courseName,
+      course: courseName
     }));
     setShowForm(true);
   };
-
   const closeForm = () => {
     setShowForm(false);
     setCourseFormData({
@@ -123,28 +171,21 @@ const SkillPage = () => {
       email: "",
       phone: "",
       captcha: "",
-      course: "",
+      course: ""
     });
   };
-
-
-
   const PAGE_SIZE = 10;
   const totalPages = Math.ceil(filteredPrograms.length / PAGE_SIZE);
   const startIndex = (currentPage - 1) * PAGE_SIZE;
-  const currentPrograms = filteredPrograms.slice(
-    startIndex,
-    startIndex + PAGE_SIZE
-  );
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
-  ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const currentPrograms = filteredPrograms.slice(startIndex, startIndex + PAGE_SIZE);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
   };
   const generateCaptcha = () => {
-    const chars =
-      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result = "";
     for (let i = 0; i < 5; i++) {
       result += chars.charAt(Math.floor(Math.random() * chars.length));
@@ -152,7 +193,6 @@ const SkillPage = () => {
     setCaptcha(result);
     setCaptchaInput("");
   };
-
   const generateCaptchacourse = () => {
     const code = Math.random().toString(36).substring(2, 8).toUpperCase();
     setCaptchaCode(code);
@@ -160,128 +200,254 @@ const SkillPage = () => {
   useEffect(() => {
     if (isOpen) generateCaptcha();
   }, [isOpen]);
-
   useEffect(() => {
     if (showForm) generateCaptchacourse();
   }, [showForm]);
-
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    const name = formData.name?.trim();
+    const email = formData.email?.trim();
+    const phone = formData.phone?.trim();
+    const program = formData.program?.trim();
+    const captchaValue = captchaInput?.trim();
 
-    // 1️⃣ CAPTCHA CHECK
-    if (captchaInput.trim().toLowerCase() !== captcha.toLowerCase()) {
+    // 1️⃣ CAPTCHA VALIDATION
+    if (!captchaValue) {
       setStatus("captcha");
+      toast.error("Please enter CAPTCHA", {
+        theme: "colored"
+      });
+      return;
+    }
+    if (captchaValue.toLowerCase() !== captcha.toLowerCase()) {
+      setStatus("captcha");
+      toast.error("Invalid CAPTCHA. Please try again", {
+        theme: "colored"
+      });
+      setCaptchaInput("");
       generateCaptcha();
       return;
     }
 
-    // 2️⃣ FIELD VALIDATION
-    if (
-      !formData.name ||
-      !formData.phone ||
-      !formData.program ||
-      !/\S+@\S+\.\S+/.test(formData.email)
-    ) {
+    // 2️⃣ NAME VALIDATION
+    if (!name) {
       setStatus("error");
+      toast.error("Please enter your name", {
+        theme: "colored"
+      });
+      return;
+    }
+    if (name.length < 2) {
+      setStatus("error");
+      toast.error("Name must be at least 2 characters", {
+        theme: "colored"
+      });
+      return;
+    }
+    if (!/^[A-Za-z\s]+$/.test(name)) {
+      setStatus("error");
+      toast.error("Name should contain only letters", {
+        theme: "colored"
+      });
       return;
     }
 
+    // 3️⃣ EMAIL VALIDATION
+    if (!email) {
+      setStatus("error");
+      toast.error("Please enter your email address", {
+        theme: "colored"
+      });
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setStatus("error");
+      toast.error("Please enter a valid email address", {
+        theme: "colored"
+      });
+      return;
+    }
+
+    // 4️⃣ PHONE VALIDATION
+    if (!phone) {
+      setStatus("error");
+      toast.error("Please enter your phone number", {
+        theme: "colored"
+      });
+      return;
+    }
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      setStatus("error");
+      toast.error("Please enter a valid 10-digit phone number", {
+        theme: "colored"
+      });
+      return;
+    }
+
+    // 5️⃣ PROGRAM VALIDATION
+    if (!program) {
+      setStatus("error");
+      toast.error("Please select a program", {
+        theme: "colored"
+      });
+      return;
+    }
     setLoading(true);
 
-    // 3️⃣ Prepare formData for API
+    // 6️⃣ PREPARE FORMDATA
     const payload = new FormData();
-    payload.append("name", formData.name);
-    payload.append("email", formData.email);
-    payload.append("contact", formData.phone);
-    payload.append("program_name", formData.program);
-
+    payload.append("name", name);
+    payload.append("email", email);
+    payload.append("contact", phone);
+    payload.append("program_name", program);
     try {
-      // 4️⃣ CALL API: ongoingtraining
+      // 7️⃣ API CALL
       const res = await postData("ongoingtraining", payload);
-
-      if (res.success) {
-        toast.success("Form Submitted Successfully!", { theme: "colored" });
+      if (res?.success) {
+        toast.success("Form Submitted Successfully!", {
+          theme: "colored"
+        });
 
         // RESET FORM
-        setFormData({ name: "", email: "", phone: "", program: "" });
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          program: ""
+        });
         setCaptchaInput("");
         generateCaptcha();
         setStatus("success");
 
-        // CLOSE POPUP AFTER 1.5 sec
-        setTimeout(() => setIsOpen(false), 1500);
+        // CLOSE POPUP
+        setTimeout(() => {
+          setIsOpen(false);
+        }, 1500);
       } else {
-        toast.error("Something went wrong!", { theme: "colored" });
+        toast.error(res?.message || "Something went wrong!", {
+          theme: "colored"
+        });
       }
     } catch (error) {
-      toast.error("Server Error!", { theme: "colored" });
+      console.error("Ongoing training form error:", error);
+      toast.error("Server Error! Please try again.", {
+        theme: "colored"
+      });
     } finally {
       setLoading(false);
     }
   };
-
   const handleSubmits = async () => {
-    if (!courseFormData.captcha) {
+    const name = courseFormData.name?.trim();
+    const email = courseFormData.email?.trim();
+    const phone = courseFormData.phone?.trim();
+    const course = courseFormData.course?.trim();
+    const captcha = courseFormData.captcha?.trim();
+
+    // CAPTCHA validation
+    if (!captcha) {
       toast.error("Please verify CAPTCHA");
       return;
     }
 
-    if (!courseFormData.name || !courseFormData.email || !courseFormData.phone) {
-      toast.error("Please fill all the fields");
+    // Name validation
+    if (!name) {
+      toast.error("Please enter your name");
+      return;
+    }
+    if (name.length < 2) {
+      toast.error("Name must be at least 2 characters");
+      return;
+    }
+    if (!/^[A-Za-z\s]+$/.test(name)) {
+      toast.error("Name should contain only letters");
       return;
     }
 
-    setLoading(true);
-
-    try {
-  
-      const payload = {
-        name: courseFormData.name,
-        email: courseFormData.email,
-        phone: courseFormData.phone,
-        course: courseFormData.course,
-      };
-
-      const res = await postData("showinterstprograms", payload);
-
-      const data = await res.json();
-
-      if (res.ok) {
-        toast.success("Form Submitted Successfully!");
-        closeForm();
-      } else {
-        toast.error(data.message || "Something went wrong");
-      }
-    } catch (err) {
-      toast.error("Server error. Try again");
+    // Email validation
+    if (!email) {
+      toast.error("Please enter your email");
+      return;
+    }
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      toast.error("Please enter a valid email address");
+      return;
     }
 
-    setLoading(false);
-  };
+    // Phone validation
+    if (!phone) {
+      toast.error("Please enter your phone number");
+      return;
+    }
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      toast.error("Please enter a valid 10-digit phone number");
+      return;
+    }
 
+    // Course validation
+    if (!course) {
+      toast.error("Please select a course");
+      return;
+    }
+    setLoading(true);
+    try {
+      const payload = {
+        name,
+        email,
+        phone,
+        course
+      };
+      const res = await postData("showinterstprograms", payload);
+      if (res?.success) {
+        toast.success("Form submitted successfully!");
+        closeForm();
+      } else {
+        toast.error(res?.message || "Something went wrong");
+      }
+    } catch (err) {
+      console.error("Course interest form error:", err);
+      toast.error("Server error. Please try again");
+    } finally {
+      setLoading(false);
+    }
+  };
   const modalVariants = {
-    hidden: { opacity: 0, scale: 0.95 },
-    visible: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-    exit: { opacity: 0, scale: 0.95, transition: { duration: 0.2 } },
+    hidden: {
+      opacity: 0,
+      scale: 0.95
+    },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: {
+        duration: 0.3
+      }
+    },
+    exit: {
+      opacity: 0,
+      scale: 0.95,
+      transition: {
+        duration: 0.2
+      }
+    }
   };
-
-  return (
-    <>
+  return <>
       {/* Banner */}
-      <ReuseBanner
-        image="/images/gallery/Computer-Training/Computer-Training-8.webp"
-        title="Focus Area - Skill Development & Livelihood Promotion"
-        subtitle="Where Responsibility Meets Community"
-      />
+      <ReuseBanner image="/images/gallery/Computer-Training/Computer-Training-8.webp" title="Focus Area - Skill Development & Livelihood Promotion" subtitle="Where Responsibility Meets Community" />
 
       {/* Breadcrumb */}
-      <Breadcrumb
-        items={[
-          { label: "Home", href: "/" },
-          { label: "Focus Area", href: "/focus-area/skill" },
-          { label: content.label, href: "" },
-        ]}
-      />
+      <Breadcrumb items={[{
+      label: "Home",
+      href: "/"
+    }, {
+      label: "Focus Area",
+      href: "/focus-area/skill"
+    }, {
+      label: content.label,
+      href: ""
+    }]} />
 
       <section className="py-12 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
@@ -302,41 +468,21 @@ const SkillPage = () => {
 
               <div className="space-y-4">
                 {features.map((line, i) => {
-                  // Split at the first colon to make the title bold
-                  const [title, ...desc] = line.split(":");
-                  return (
-                    <div key={i} className="flex items-start gap-3">
+                // Split at the first colon to make the title bold
+                const [title, ...desc] = line.split(":");
+                return <div key={i} className="flex items-start gap-3">
                       <MdStar className="mt-1 text-blue-500/70  w-6 h-6 flex-shrink-0" />
                       <p className="text-gray-700 leading-relaxed">
                         <span className="font-bold">{title}:</span>{" "}
                         {desc.join(":")}
                       </p>
-                    </div>
-                  );
-                })}
+                    </div>;
+              })}
               </div>
 
-              <button
-                id="joinongoing"
-                onClick={() => setIsOpen(true)}
-                type="button"
-                className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 flex items-center gap-3"
-                aria-label="Join a Training Program"
-              >
+              <button id="joinongoing" onClick={() => setIsOpen(true)} type="button" className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600 flex items-center gap-3" aria-label="Join a Training Program">
                 {/* Graduation Cap Icon */}
-                <svg
-                  aria-hidden="true"
-                  focusable="false"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="flex-shrink-0"
-                >
+                <svg aria-hidden="true" focusable="false" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="flex-shrink-0">
                   <path d="M22 10L12 4 2 10l10 6 10-6z" />
                   <path d="M6 12v5a6 3 0 0012 0v-5" />
                 </svg>
@@ -352,28 +498,17 @@ const SkillPage = () => {
 
             {/* Right: Image */}
             <div className="w-full h-full min-h-[400px] relative overflow-hidden shadow-lg">
-              <Image
-                src={content.image}
-                alt={content.label}
-                fill
-                className="object-cover"
-              />
+              <Image src={content.image} alt={content.label} fill className="object-cover" />
             </div>
           </div>
 
           {/* Search + Table */}
           <div className="space-y-4">
             <div className="flex justify-end mb-4">
-              <input
-                type="text"
-                placeholder="Search by Course Name"
-                className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
-                value={search}
-                onChange={(e) => {
-                  setSearch(e.target.value);
-                  setCurrentPage(1);
-                }}
-              />
+              <input type="text" placeholder="Search by Course Name" className="px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" value={search} onChange={e => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }} />
             </div>
 
             <div className="overflow-x-auto rounded-xl shadow-lg">
@@ -395,11 +530,7 @@ const SkillPage = () => {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200">
-                  {currentPrograms.map((program, idx) => (
-                    <tr
-                      key={program.sn}
-                      className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}
-                    >
+                  {currentPrograms.map((program, idx) => <tr key={program.sn} className={idx % 2 === 0 ? "bg-white" : "bg-gray-50"}>
                       <td className="px-4 py-3 text-sm text-gray-700">
                         {program.sn}
                       </td>
@@ -410,89 +541,40 @@ const SkillPage = () => {
                         {program.duration}
                       </td>
                       <td className="px-4 py-3">
-                        <button
-                          onClick={() => openForm(program.name)}
-                          className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition"
-                        >
+                        <button onClick={() => openForm(program.name)} className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
                           Show Interest
                         </button>
                       </td>
-                    </tr>
-                  ))}
+                    </tr>)}
 
-                  {currentPrograms.length === 0 && (
-                    <tr>
-                      <td
-                        colSpan={3}
-                        className="text-center px-4 py-3 text-gray-500"
-                      >
+                  {currentPrograms.length === 0 && <tr>
+                      <td colSpan={3} className="text-center px-4 py-3 text-gray-500">
                         No courses found.
                       </td>
-                    </tr>
-                  )}
+                    </tr>}
                 </tbody>
               </table>
             </div>
 
             {/* Pagination */}
-            {totalPages > 1 && (
-              <div className="flex justify-center items-center space-x-2 mt-4">
-                <button
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.max(prev - 1, 1))
-                  }
-                  disabled={currentPage === 1}
-                  className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-                >
+            {totalPages > 1 && <div className="flex justify-center items-center space-x-2 mt-4">
+                <button onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))} disabled={currentPage === 1} className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50">
                   Prev
                 </button>
-                {[...Array(totalPages)].map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentPage(i + 1)}
-                    className={`px-3 py-1 rounded ${currentPage === i + 1
-                      ? "bg-blue-600 text-white"
-                      : "bg-gray-200"
-                      }`}
-                  >
+                {[...Array(totalPages)].map((_, i) => <button key={i} onClick={() => setCurrentPage(i + 1)} className={`px-3 py-1 rounded ${currentPage === i + 1 ? "bg-blue-600 text-white" : "bg-gray-200"}`}>
                     {i + 1}
-                  </button>
-                ))}
-                <button
-                  onClick={() =>
-                    setCurrentPage((prev) => Math.min(prev + 1, totalPages))
-                  }
-                  disabled={currentPage === totalPages}
-                  className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50"
-                >
+                  </button>)}
+                <button onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))} disabled={currentPage === totalPages} className="px-3 py-1 bg-gray-200 rounded disabled:opacity-50">
                   Next
                 </button>
-              </div>
-            )}
+              </div>}
           </div>
         </div>
 
-        <AnimatePresence>
-          {isOpen && (
-            <motion.div
-              className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setIsOpen(false)}
-            >
-              <motion.div
-                className="bg-white rounded-lg p-8 w-full max-w-md shadow-lg relative"
-                variants={modalVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                onClick={(e) => e.stopPropagation()}
-              >
-                <button
-                  onClick={() => setIsOpen(false)}
-                  className="absolute top-3 right-3 text-gray-500 hover:text-gray-800"
-                >
+        
+          {isOpen && <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50" onClick={() => setIsOpen(false)}>
+              <div className="bg-white rounded-lg p-8 w-full max-w-md shadow-lg relative" onClick={e => e.stopPropagation()}>
+                <button onClick={() => setIsOpen(false)} className="absolute top-3 right-3 text-gray-500 hover:text-gray-800">
                   ✕
                 </button>
 
@@ -501,41 +583,14 @@ const SkillPage = () => {
                 </h3>
 
                 <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
+                  <input type="text" name="name" placeholder="Your Name" value={formData.name} onChange={handleChange} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Your Email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
+                  <input type="email" name="email" placeholder="Your Email" value={formData.email} onChange={handleChange} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Contact Number"
-                    value={formData.phone}
-                    onChange={handleChange}
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                    maxLength={15}
-                  />
+                  <input type="tel" name="phone" placeholder="Contact Number" value={formData.phone} onChange={handleChange} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" maxLength={15} />
 
                   {/* ✅ Program Dropdown */}
-                  <select
-                    name="program"
-                    value={formData.program}
-                    onChange={handleChange}
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  >
+                  <select name="program" value={formData.program} onChange={handleChange} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
                     <option value="">Select Training Program</option>
                     <option value="Jr. Technician Training (Smart Energy Meter)">
                       Jr. Technician Training (Smart Energy Meter)
@@ -559,69 +614,34 @@ const SkillPage = () => {
                     <div className="bg-gray-100 text-lg tracking-widest font-mono px-4 py-2 rounded-md select-none">
                       {captcha}
                     </div>
-                    <button
-                      type="button"
-                      onClick={generateCaptcha}
-                      className="text-blue-600 text-sm hover:underline"
-                    >
+                    <button type="button" onClick={generateCaptcha} className="text-blue-600 text-sm hover:underline">
                       Refresh
                     </button>
                   </div>
 
-                  <input
-                    type="text"
-                    placeholder="Enter CAPTCHA"
-                    value={captchaInput}
-                    onChange={(e) => setCaptchaInput(e.target.value)}
-                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  />
+                  <input type="text" placeholder="Enter CAPTCHA" value={captchaInput} onChange={e => setCaptchaInput(e.target.value)} className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500" />
 
-                  <button
-                    type="submit"
-                    disabled={loading}
-                    className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors"
-                  >
+                  <button type="submit" disabled={loading} className="bg-blue-600 text-white rounded-lg px-4 py-2 hover:bg-blue-700 transition-colors">
                     {loading ? "Loading..." : "Join"}
                   </button>
 
-                  {status === "success" && (
-                    <p className="text-green-600">✅ Successfully joined!</p>
-                  )}
-                  {status === "error" && (
-                    <p className="text-red-600">
+                  {status === "success" && <p className="text-green-600">✅ Successfully joined!</p>}
+                  {status === "error" && <p className="text-red-600">
                       ⚠️ Please fill all required fields.
-                    </p>
-                  )}
-                  {status === "captcha" && (
-                    <p className="text-red-600">
+                    </p>}
+                  {status === "captcha" && <p className="text-red-600">
                       ❌ Invalid CAPTCHA. Try again.
-                    </p>
-                  )}
+                    </p>}
                 </form>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </div>
+            </div>}
+        
 
-        <AnimatePresence>
-          {showForm && (
-            <motion.div
-              className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <motion.div
-                initial={{ scale: 0.7, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                exit={{ scale: 0.7, opacity: 0 }}
-                className="relative bg-white rounded-xl shadow-xl p-6 w-full max-w-md"
-              >
+        
+          {showForm && <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+              <div className="relative bg-white rounded-xl shadow-xl p-6 w-full max-w-md">
                 {/* CLOSE BUTTON */}
-                <button
-                  onClick={closeForm}
-                  className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl"
-                >
+                <button onClick={closeForm} className="absolute top-3 right-3 text-gray-500 hover:text-red-500 text-xl">
                   ✕
                 </button>
 
@@ -630,51 +650,34 @@ const SkillPage = () => {
                 {/* SELECTED COURSE */}
                 <div className="mb-3">
                   <label className="text-sm text-gray-600">Selected Course</label>
-                  <input
-                    type="text"
-                    value={courseFormData.course}
-                    readOnly
-                    className="w-full mt-1 p-2 border rounded-md bg-gray-100"
-                  />
+                  <input type="text" value={courseFormData.course} readOnly className="w-full mt-1 p-2 border rounded-md bg-gray-100" />
                 </div>
 
                 {/* NAME */}
                 <div className="mb-3">
                   <label className="text-sm text-gray-600">Name</label>
-                  <input
-                    type="text"
-                    value={courseFormData.name}
-                    onChange={(e) =>
-                      setCourseFormData({ ...courseFormData, name: e.target.value })
-                    }
-                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  <input type="text" value={courseFormData.name} onChange={e => setCourseFormData({
+              ...courseFormData,
+              name: e.target.value
+            })} className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
 
                 {/* EMAIL */}
                 <div className="mb-3">
                   <label className="text-sm text-gray-600">Email</label>
-                  <input
-                    type="email"
-                    value={courseFormData.email}
-                    onChange={(e) =>
-                      setCourseFormData({ ...courseFormData, email: e.target.value })
-                    }
-                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  <input type="email" value={courseFormData.email} onChange={e => setCourseFormData({
+              ...courseFormData,
+              email: e.target.value
+            })} className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
 
                 {/* PHONE */}
                 <div className="mb-3">
                   <label className="text-sm text-gray-600">Phone</label>
-                  <input
-                    type="number"
-                    value={courseFormData.phone}
-                    onChange={(e) =>
-                      setCourseFormData({ ...courseFormData, phone: e.target.value })
-                    }
-                    className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  <input type="number" value={courseFormData.phone} onChange={e => setCourseFormData({
+              ...courseFormData,
+              phone: e.target.value
+            })} className="w-full mt-1 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
 
                 {/* CAPTCHA SECTION */}
@@ -688,49 +691,31 @@ const SkillPage = () => {
                     </div>
 
                     {/* Refresh Button */}
-                    <button
-                      onClick={generateCaptchacourse}
-                      className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600"
-                    >
+                    <button onClick={generateCaptchacourse} className="px-3 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600">
                       ↻
                     </button>
                   </div>
 
                   {/* Captcha Input */}
-                  <input
-                    type="text"
-                    placeholder="Enter captcha"
-                    value={courseFormData.captcha}
-                    onChange={(e) =>
-                      setCourseFormData({
-                        ...courseFormData,
-                        captcha: e.target.value,
-                      })
-                    }
-                    className="w-full mt-2 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none"
-                  />
+                  <input type="text" placeholder="Enter captcha" value={courseFormData.captcha} onChange={e => setCourseFormData({
+              ...courseFormData,
+              captcha: e.target.value
+            })} className="w-full mt-2 p-2 border rounded-md focus:ring-2 focus:ring-blue-500 outline-none" />
                 </div>
 
                 {/* BUTTONS */}
                 <div className="flex justify-end gap-3">
 
 
-                  <button
-                    onClick={handleSubmits}
-                    disabled={loading}
-                    className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50"
-                  >
+                  <button onClick={handleSubmits} disabled={loading} className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:opacity-50">
                     {loading ? "Submitting..." : "Submit"}
                   </button>
                 </div>
-              </motion.div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+              </div>
+            </div>}
+        
 
       </section>
-    </>
-  );
+    </>;
 };
-
 export default SkillPage;

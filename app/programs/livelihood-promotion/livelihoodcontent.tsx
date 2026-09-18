@@ -1,36 +1,24 @@
 "use client";
 
-import { motion } from "framer-motion";
-import {
-  HiMiniComputerDesktop,
-  HiMiniBuildingStorefront,
-  HiMiniUsers,
-  HiMiniCurrencyRupee,
-  HiMiniSignal,
-} from "react-icons/hi2";
-
+import { HiMiniComputerDesktop, HiMiniBuildingStorefront, HiMiniUsers, HiMiniCurrencyRupee, HiMiniSignal } from "react-icons/hi2";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";
-
 export default function LivelihoodContent() {
-  return (
-    <div>
+  return <div>
       {/* ---------- BANNER ---------- */}
-      <ReuseBanner
-        image="https://sonacsri.com/images/banners/livelihood-promotion.jpg"
-        title="Programs - Livelihood Promotion Activities"
-        subtitle="Building Skills, Enterprise & Economic Resilience"
-      />
+      <ReuseBanner image="https://sonacsri.com/images/banners/livelihood-promotion.jpg" title="Programs - Livelihood Promotion Activities" subtitle="Building Skills, Enterprise & Economic Resilience" />
 
       {/* ---------- BREADCRUMB ---------- */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-4">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Programs", href: "/programs/Livelihood Promotion" },
-            { label: "Livelihood Promotion" },
-          ]}
-        />
+        <Breadcrumb items={[{
+        label: "Home",
+        href: "/"
+      }, {
+        label: "Programs",
+        href: "/programs/Livelihood Promotion"
+      }, {
+        label: "Livelihood Promotion"
+      }]} />
       </div>
 
       {/* ---------- INTRO SECTION ---------- */}
@@ -67,56 +55,42 @@ export default function LivelihoodContent() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
             {/* CARD TEMPLATE */}
-            {[
-              {
-                icon: <HiMiniComputerDesktop className="text-3xl" />,
-                color: "from-blue-500 to-indigo-500",
-                title: "Skill Labs & Learning Spaces",
-                text: "Hands-on learning spaces for rural youth & women to practice new trades, build employability, and start enterprises.",
-              },
-              {
-                icon: <HiMiniBuildingStorefront className="text-3xl" />,
-                color: "from-emerald-500 to-green-500",
-                title: "Enterprise Acceleration",
-                text: "Mentoring, micro-unit setup, production tools, and business support for community entrepreneurs.",
-              },
-              {
-                icon: <HiMiniUsers className="text-3xl" />,
-                color: "from-pink-500 to-rose-500",
-                title: "Inclusive Livelihood Support",
-                text: "Income pathways for tribal communities, single women, and vulnerable households.",
-              },
-              {
-                icon: <HiMiniCurrencyRupee className="text-3xl" />,
-                color: "from-amber-500 to-orange-500",
-                title: "Agri-Based Value Chains",
-                text: "Farm & non-farm value addition, community processing units, and post-harvest strengthening.",
-              },
-              {
-                icon: <HiMiniSignal className="text-3xl" />,
-                color: "from-cyan-500 to-blue-600",
-                title: "Digital Market Access",
-                text: "Helping small producers adopt digital payments, e-commerce platforms, and traceability tools.",
-              },
-            ].map((card, index) => (
-              <div
-                key={index}
-                className="p-6 sm:p-8 bg-white/80  border backdrop-blur-xl  transition"
-              >
-                <div
-                  className={`w-16 h-16 bg-gradient-to-br ${card.color} text-white rounded-2xl flex items-center justify-center`}
-                >
+            {[{
+            icon: <HiMiniComputerDesktop className="text-3xl" />,
+            color: "from-blue-500 to-indigo-500",
+            title: "Skill Labs & Learning Spaces",
+            text: "Hands-on learning spaces for rural youth & women to practice new trades, build employability, and start enterprises."
+          }, {
+            icon: <HiMiniBuildingStorefront className="text-3xl" />,
+            color: "from-emerald-500 to-green-500",
+            title: "Enterprise Acceleration",
+            text: "Mentoring, micro-unit setup, production tools, and business support for community entrepreneurs."
+          }, {
+            icon: <HiMiniUsers className="text-3xl" />,
+            color: "from-pink-500 to-rose-500",
+            title: "Inclusive Livelihood Support",
+            text: "Income pathways for tribal communities, single women, and vulnerable households."
+          }, {
+            icon: <HiMiniCurrencyRupee className="text-3xl" />,
+            color: "from-amber-500 to-orange-500",
+            title: "Agri-Based Value Chains",
+            text: "Farm & non-farm value addition, community processing units, and post-harvest strengthening."
+          }, {
+            icon: <HiMiniSignal className="text-3xl" />,
+            color: "from-cyan-500 to-blue-600",
+            title: "Digital Market Access",
+            text: "Helping small producers adopt digital payments, e-commerce platforms, and traceability tools."
+          }].map((card, index) => <div key={index} className="p-6 sm:p-8 bg-white/80  border backdrop-blur-xl  transition">
+                <div className={`w-16 h-16 bg-gradient-to-br ${card.color} text-white rounded-2xl flex items-center justify-center`}>
                   {card.icon}
                 </div>
                 <h4 className="font-bold text-xl mt-6">{card.title}</h4>
                 <p className="text-gray-600 dark:text-gray-300 mt-3 text-sm leading-relaxed text-justify">
                   {card.text}
                 </p>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }

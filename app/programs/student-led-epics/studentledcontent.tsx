@@ -1,64 +1,37 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
-import {
-  FaUniversity,
-  FaRecycle,
-  FaAssistiveListeningSystems,
-  FaPeopleCarry,
-} from "react-icons/fa";
-
+import { FaUniversity, FaRecycle, FaAssistiveListeningSystems, FaPeopleCarry } from "react-icons/fa";
 import ReuseBanner from "@/app/components/ReuseBanner";
 import Breadcrumb from "@/app/components/Breadcrumb";
-
 export default function EPICSPage() {
-  return (
-    <div>
+  return <div>
       {/* ---------- Banner ---------- */}
-      <ReuseBanner
-        image="https://img.freepik.com/premium-photo/group-students-working-robotics-project_1232-2123.jpg"
-        title=" Programs - Student-led EPICS Initiative"
-        subtitle="Engineering Projects in Community Service"
-      />
+      <ReuseBanner image="https://img.freepik.com/premium-photo/group-students-working-robotics-project_1232-2123.jpg" title=" Programs - Student-led EPICS Initiative" subtitle="Engineering Projects in Community Service" />
 
       {/* ---------- Breadcrumb ---------- */}
       <div className="max-w-7xl mx-auto px-6 mt-4">
-        <Breadcrumb
-          items={[
-            { label: "Home", href: "/" },
-            { label: "Programs", href: "/programs/student-led-epics" },
-            { label: "Student-led EPICS Initiative" },
-          ]}
-        />
+        <Breadcrumb items={[{
+        label: "Home",
+        href: "/"
+      }, {
+        label: "Programs",
+        href: "/programs/student-led-epics"
+      }, {
+        label: "Student-led EPICS Initiative"
+      }]} />
       </div>
 
       {/* ---------- INTRO SECTION ---------- */}
       <section className="py-8 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           {/* LEFT IMAGE */}
-          <motion.div
-            initial={{ opacity: 0, x: -40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            <Image
-              src="/images/gallery/Education/Education-3.webp"
-              width={800}
-              height={600}
-              className="object-cover w-full h-auto"
-              alt="EPICS Project"
-            />
-          </motion.div>
+          <div>
+            <Image src="/images/gallery/Education/Education-3.webp" width={800} height={600} className="object-cover w-full h-auto" alt="EPICS Project" />
+          </div>
 
           {/* RIGHT TEXT */}
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-          >
+          <div>
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6 leading-snug">
               Student-led EPICS Initiative
             </h2>
@@ -82,7 +55,7 @@ export default function EPICSPage() {
               funding agencies, making EPICS a proven model of education-driven
               community impact.
             </p>
-          </motion.div>
+          </div>
         </div>
       </section>
 
@@ -179,6 +152,5 @@ export default function EPICSPage() {
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 }

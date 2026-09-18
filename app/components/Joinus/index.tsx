@@ -1,10 +1,9 @@
 "use client";
-import { motion } from "framer-motion";
+
 import { useState, useEffect } from "react";
 import { postData } from "@/app/lib/api";
 import { toast } from "react-toastify";
 import Image from "next/image";
-
 const Join = () => {
   const [loading, setLoading] = useState(false);
   const [captchaText, setCaptchaText] = useState("");
@@ -19,57 +18,51 @@ const Join = () => {
     }
     setCaptchaText(text);
   };
-
   useEffect(() => {
     generateCaptcha();
   }, []);
-
   const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     // Check letters CAPTCHA
     if (userCaptcha !== captchaText) {
-      toast.error("Captcha is incorrect!", { theme: "colored" });
+      toast.error("Captcha is incorrect!", {
+        theme: "colored"
+      });
       setUserCaptcha("");
       generateCaptcha();
       return;
     }
-
     setLoading(true);
-
     const formData = new FormData(e.target);
-
     try {
       const res = await postData("ourefforts", formData);
-
       if (res.success) {
-        toast.success("Joined Successfully!", { theme: "colored" });
+        toast.success("Joined Successfully!", {
+          theme: "colored"
+        });
         e.target.reset();
         setUserCaptcha("");
         generateCaptcha();
       } else {
-        toast.error("Something went wrong!", { theme: "colored" });
+        toast.error("Something went wrong!", {
+          theme: "colored"
+        });
       }
     } catch (error) {
-      toast.error("Server Error!", { theme: "colored" });
+      toast.error("Server Error!", {
+        theme: "colored"
+      });
     } finally {
       setLoading(false);
     }
   };
-
-  return (
-    <div className="bg-gradient-to-b from-gray-100 to-white">
+  return <div className="bg-gradient-to-b from-gray-100 to-white">
       <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-8">
         <div className="overflow-hidden">
           <div className="grid md:grid-cols-2">
             {/* Left Section */}
-            <motion.aside
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="flex flex-col justify-center p-2  space-y-6 text-gray-800"
-            >
+            <aside className="flex flex-col justify-center p-2  space-y-6 text-gray-800">
               <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
                 Join CSRI
               </h2>
@@ -83,33 +76,11 @@ const Join = () => {
               {/* Form */}
               <form className="space-y-4 w-full" onSubmit={handleSubmit}>
                 <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-4 sm:space-y-0 w-full">
-                  <input
-                    type="text"
-                    name="name"
-                    required
-                    className="flex-1 px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                    placeholder="Your name"
-                    autoComplete="off"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    required
-                    className="flex-1 px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                    placeholder="Your email"
-                    autoComplete="off"
-                  />
+                  <input type="text" name="name" required className="flex-1 px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Your name" autoComplete="off" />
+                  <input type="email" name="email" required className="flex-1 px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Your email" autoComplete="off" />
                 </div>
 
-                <input
-                  type="tel"
-                  name="contact"
-                  pattern="[0-9]{10}"
-                  required
-                  className="w-full px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  placeholder="Your contact number"
-                  autoComplete="off"
-                />
+                <input type="tel" name="contact" pattern="[0-9]{10}" required className="w-full px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" placeholder="Your contact number" autoComplete="off" />
 
                 {/* Letters CAPTCHA */}
                 <div className="flex flex-col space-y-2">
@@ -121,31 +92,17 @@ const Join = () => {
                     </span>
 
                     {/* Refresh Button with Icon */}
-                    <button
-                      type="button"
-                      onClick={generateCaptcha}
-                      className="flex items-center justify-center px-4 bg-blue-500 text-white rounded-r hover:bg-blue-600 transition"
-                    >
+                    <button type="button" onClick={generateCaptcha} className="flex items-center justify-center px-4 bg-blue-500 text-white rounded-r hover:bg-blue-600 transition">
                       Refresh
                     </button>
                   </div>
 
                   {/* User Input */}
-                  <input
-                    type="text"
-                    value={userCaptcha}
-                    onChange={(e) => setUserCaptcha(e.target.value)}
-                    required
-                    placeholder="Enter the letters above"
-                    className="w-full px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
+                  <input type="text" value={userCaptcha} onChange={e => setUserCaptcha(e.target.value)} required placeholder="Enter the letters above" className="w-full px-4 py-3 rounded-lg bg-gray-200 text-gray-800 placeholder-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 transition" />
                 </div>
 
 
-                <button
-                  type="submit"
-                  className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600"
-                >
+                <button type="submit" className="group relative h-12 overflow-hidden rounded-md bg-blue-500 px-6 text-neutral-50 transition hover:bg-blue-600">
                   <span className="relative font-bold">
                     {loading ? "Submitting..." : "Join CSRI!"}
                   </span>
@@ -155,29 +112,15 @@ const Join = () => {
                   </div>
                 </button>
               </form>
-            </motion.aside>
+            </aside>
 
             {/* Right Section */}
-            <motion.aside
-              initial={{ scale: 1.05, opacity: 0 }}
-              whileInView={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 1, ease: "easeOut" }}
-              viewport={{ once: true }}
-              className="hidden md:block relative"
-            >
-              <Image
-                fill
-                sizes="50vw"
-                className="object-cover object-center"
-                src="/images/focus-area/Join-CSRI.webp"
-                alt="CSRI community"
-              />
-            </motion.aside>
+            <aside className="hidden md:block relative">
+              <Image fill sizes="50vw" className="object-cover object-center" src="/images/focus-area/Join-CSRI.webp" alt="CSRI community" />
+            </aside>
           </div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default Join;
