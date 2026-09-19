@@ -1,4 +1,5 @@
 import "./globals.css";
+import { Urbanist, Dancing_Script } from "next/font/google";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PopupNotice from "./components/Popup";
@@ -8,6 +9,23 @@ import Script from "next/script";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+// Self-hosted at build time (no runtime request to fonts.googleapis.com),
+// so there's no render-blocking round trip before text can paint.
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-urbanist",
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dancing-script",
+  display: "swap",
+});
+
 export const metadata: Metadata = {
   title: {
     default: "Sona CSRI – Center for Social Responsibility Initiatives",
@@ -76,7 +94,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={`${urbanist.variable} ${dancingScript.variable}`}>
       <head>
         {/* ✅ Organization Schema for SEO */}
         <Script
