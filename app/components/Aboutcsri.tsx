@@ -1,4 +1,5 @@
 import Image from "next/image";
+import FadeIn from "./motion/FadeIn";
 
 export default function Aboutcsri() {
     return (
@@ -6,7 +7,7 @@ export default function Aboutcsri() {
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-6 items-center">
 
                 {/* Left side - Text Content (takes remaining space) */}
-                <div className="flex-1 flex flex-col gap-6">
+                <FadeIn direction="up" className="flex-1 flex flex-col gap-6">
                     {/* Heading */}
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
                         About <span className="text-blue">CSRI</span>
@@ -38,9 +39,9 @@ export default function Aboutcsri() {
                             meaningfully to national and global development goals.
                         </p>
                     </div>
-                </div>
+                </FadeIn>
 
-        <div className="hidden lg:block w-1/5">
+        <FadeIn direction="right" delay={0.15} className="hidden lg:block w-1/5">
     <div className="relative h-[500px] rounded-full overflow-hidden shadow-2xl group">
         <Image
             src="/images/about/aboutcsri.webp"
@@ -50,7 +51,7 @@ export default function Aboutcsri() {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
     </div>
-</div>
+</FadeIn>
 
             </div>
         </section>

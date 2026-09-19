@@ -2,7 +2,7 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import PopupNotice from "./components/Popup";
-import Preloader from "./components/Preloader";
+import RouteProgress from "./components/motion/RouteProgress";
 import type { Metadata } from "next";
 import Script from "next/script";
 
@@ -128,19 +128,18 @@ export default function RootLayout({
       </head>
 
       <body className="bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-        <Preloader>
-          <Navbar />
+        <RouteProgress />
+        <Navbar />
 
-          {children}
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop={true}
-            theme="colored"
-          />
-          <Footer />
-        </Preloader>
+        {children}
+        <ToastContainer
+          position="top-right"
+          autoClose={3000}
+          hideProgressBar={false}
+          newestOnTop={true}
+          theme="colored"
+        />
+        <Footer />
       </body>
     </html>
   );

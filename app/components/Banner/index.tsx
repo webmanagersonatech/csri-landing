@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper/modules";
 import Link from "next/link";
+import FadeIn from "../motion/FadeIn";
 import "swiper/css";
 import "swiper/css/pagination";
 const slides = [{

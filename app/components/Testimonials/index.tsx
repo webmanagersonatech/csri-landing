@@ -3,6 +3,7 @@
 import Slider from "react-slick";
 import React, { useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import FadeIn from "../motion/FadeIn";
 interface VideoType {
   name: string;
   profession: string;
@@ -64,14 +65,14 @@ export default function VideoTestimonials() {
   return <section id="testimonials" className="dark:bg-gray-100 dark:text-gray-800">
       <div className="container py-12 px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         {/* Heading */}
-        <div className="max-w-2xl mx-auto mb-8 space-y-4 text-center">
+        <FadeIn className="max-w-2xl mx-auto mb-8 space-y-4 text-center">
           <h2 className="text-3xl text-[#4f4e50ff] sm:text-4xl font-bold">
             &ldquo;What our community is saying&rdquo;
           </h2>
           <p className="dark:text-gray-600 text-base sm:text-lg text-justify">
             Watch what our alumni, volunteers, and partners are saying about CSRI. These video testimonials showcase real experiences and the impact our programs have on communities.
           </p>
-        </div>
+        </FadeIn>
 
         {/* Slider */}
         <Slider {...settings}>

@@ -6,6 +6,8 @@ import { programCategories } from "@/data/programCategories";
 import Link from "next/link";
 import Image from "next/image";
 import { FaLeaf, FaHeartbeat, FaChalkboardTeacher, FaFemale, FaCity, FaBook } from "react-icons/fa";
+import FadeIn from "../motion/FadeIn";
+import { Stagger, StaggerItem } from "../motion/Stagger";
 const focusAreas = [{
   icon: <FaChalkboardTeacher className="mx-auto text-green-600 text-5xl" />,
   title: "Skill Development & Livelihood Promotion",
@@ -38,23 +40,6 @@ const focusAreas = [{
   href: "/focus-area/entrepreneurship"
 }];
 
-// Framer Motion variant
-const scrollVariant = {
-  hidden: {
-    opacity: 0,
-    y: 40,
-    scale: 0.95
-  },
-  show: {
-    opacity: 1,
-    y: 0,
-    scale: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut"
-    }
-  }
-};
 export default function CSRIFocusPage() {
   const router = useRouter();
   return <section className="py-10 bg-white sm:py-8 lg:py-10">
@@ -62,19 +47,21 @@ export default function CSRIFocusPage() {
         {/* Programs Section */}
 
         <div id="programs" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold tracking-tight text-[#4f4e50ff]  sm:text-4xl lg:text-5xl text-center">
-            Programs
-          </h2>
+          <FadeIn>
+            <h2 className="text-3xl font-bold tracking-tight text-[#4f4e50ff]  sm:text-4xl lg:text-5xl text-center">
+              Programs
+            </h2>
 
-          <p className="mt-4 max-w-2xl mx-auto text-base text-gray-600 sm:text-lg text-center">
-            Our programs are designed to create meaningful impact in the
-            community. We focus on skill development, healthcare, research, and
-            empowerment initiatives that foster sustainable growth and positive
-            change.
-          </p>
+            <p className="mt-4 max-w-2xl mx-auto text-base text-gray-600 sm:text-lg text-center">
+              Our programs are designed to create meaningful impact in the
+              community. We focus on skill development, healthcare, research, and
+              empowerment initiatives that foster sustainable growth and positive
+              change.
+            </p>
+          </FadeIn>
 
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {programCategories.map((program, idx) => <div key={idx} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-500 flex flex-col overflow-hidden">
+          <Stagger className="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {programCategories.map((program, idx) => <StaggerItem key={idx} className="bg-white shadow-lg hover:shadow-xl transition-shadow duration-500 flex flex-col overflow-hidden">
 
                 <div className="relative w-full h-48 overflow-hidden">
                   <Image src={program.image} alt={program.title} fill sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" className="object-cover transform hover:scale-105 transition-transform duration-500" />
@@ -101,8 +88,8 @@ export default function CSRIFocusPage() {
                     </button>
                   </div>
                 </div>
-              </div>)}
-          </div>
+              </StaggerItem>)}
+          </Stagger>
 
           {/* 
            <div className="flex justify-center mt-8">
@@ -134,16 +121,19 @@ export default function CSRIFocusPage() {
 
 
         <div id="focus" className="mt-12 text-center">
-          <h2 className="text-3xl font-bold tracking-tight text-[#4f4e50ff] sm:text-4xl lg:text-5xl">
-            Focus Areas of Working
-          </h2>
-          <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600 ">
-            We create impact through skill development, health initiatives,
-            environment, and empowerment programs.
-          </p>
+          <FadeIn>
+            <h2 className="text-3xl font-bold tracking-tight text-[#4f4e50ff] sm:text-4xl lg:text-5xl">
+              Focus Areas of Working
+            </h2>
+            <p className="mt-4 max-w-2xl mx-auto text-base sm:text-lg text-gray-600 ">
+              We create impact through skill development, health initiatives,
+              environment, and empowerment programs.
+            </p>
+          </FadeIn>
 
-          <div className="grid grid-cols-1 text-center sm:mt-10 sm:grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-0 xl:mt-12">
-            {focusAreas.map((area, idx) => <Link key={idx} href={area.href} className="group">
+          <Stagger className="grid grid-cols-1 text-center sm:mt-10 sm:grid-cols-2 md:grid-cols-3 gap-y-12 md:gap-0 xl:mt-12">
+            {focusAreas.map((area, idx) => <StaggerItem key={idx}>
+                <Link href={area.href} className="group">
                 <div className={`
           flex flex-col items-center h-full md:p-10 lg:p-14 border-gray-200
           ${idx % 3 !== 0 ? "md:border-l" : ""}
@@ -160,8 +150,9 @@ export default function CSRIFocusPage() {
                     {area.desc}
                   </p>
                 </div>
-              </Link>)}
-          </div>
+              </Link>
+              </StaggerItem>)}
+          </Stagger>
 
         </div>
       </div>
